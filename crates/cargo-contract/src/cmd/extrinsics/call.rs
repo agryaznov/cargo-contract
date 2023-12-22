@@ -23,8 +23,8 @@ use super::{
     BalanceVariant,
     Client,
     ContractMessageTranscoder,
-    DefaultConfig,
     ExtrinsicOpts,
+    PolkamaskConfig,
     StorageDeposit,
     TokenMetadata,
     MAX_KEY_COL_WIDTH,
@@ -68,7 +68,7 @@ use subxt_signer::ecdsa::Keypair;
 pub struct CallCommand {
     /// The address of the the contract to call.
     #[clap(name = "contract", long, env = "CONTRACT")]
-    contract: <DefaultConfig as Config>::AccountId,
+    contract: <PolkamaskConfig as Config>::AccountId,
     /// The name of the contract message to call.
     #[clap(long, short)]
     message: String,
@@ -295,8 +295,8 @@ impl CallCommand {
 /// Copied from `pallet-contracts-rpc-runtime-api`.
 #[derive(Encode)]
 pub struct CallRequest {
-    origin: <DefaultConfig as Config>::AccountId,
-    dest: <DefaultConfig as Config>::AccountId,
+    origin: <PolkamaskConfig as Config>::AccountId,
+    dest: <PolkamaskConfig as Config>::AccountId,
     value: Balance,
     gas_limit: Option<Weight>,
     storage_deposit_limit: Option<Balance>,

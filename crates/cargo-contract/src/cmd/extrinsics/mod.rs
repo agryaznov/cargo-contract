@@ -96,7 +96,7 @@ pub use contract_transcode::ContractMessageTranscoder;
 pub use error::ErrorVariant;
 pub use instantiate::InstantiateCommand;
 pub use remove::RemoveCommand;
-pub use subxt::PolkadotConfig as DefaultConfig;
+pub use subxt::PolkadotConfig as PolkamaskConfig;
 pub use upload::UploadCommand;
 
 /// Arguments required for creating and sending an extrinsic to a substrate node.
@@ -321,7 +321,7 @@ impl WasmCode {
 
 /// Get the account id from the Keypair
 pub fn account_id(keypair: &Keypair) -> AccountId20 {
-    subxt::tx::Signer::<DefaultConfig>::account_id(keypair)
+    subxt::tx::Signer::<PolkamaskConfig>::account_id(keypair)
 }
 
 const STORAGE_DEPOSIT_KEY: &str = "Storage Deposit";
@@ -460,7 +460,7 @@ fn print_gas_required_success(gas: Weight) {
 }
 
 /// Parse a hex encoded 32 byte hash. Returns error if not exactly 32 bytes.
-pub fn parse_code_hash(input: &str) -> Result<<DefaultConfig as Config>::Hash> {
+pub fn parse_code_hash(input: &str) -> Result<<PolkamaskConfig as Config>::Hash> {
     let bytes = contract_build::util::decode_hex(input)?;
     if bytes.len() != 32 {
         anyhow::bail!("Code hash should be 32 bytes in length")

@@ -20,8 +20,8 @@ use super::{
     state_call,
     submit_extrinsic,
     Client,
-    DefaultConfig,
     ExtrinsicOpts,
+    PolkamaskConfig,
     TokenMetadata,
 };
 use crate::{
@@ -187,7 +187,7 @@ impl UploadCommand {
 /// A struct that encodes RPC parameters required for a call to upload a new code.
 #[derive(Encode)]
 pub struct CodeUploadRequest {
-    origin: <DefaultConfig as Config>::AccountId,
+    origin: <PolkamaskConfig as Config>::AccountId,
     code: Vec<u8>,
     storage_deposit_limit: Option<Balance>,
     determinism: Determinism,

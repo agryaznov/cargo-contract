@@ -36,7 +36,7 @@ use serde::{
 ///
 /// # Note
 ///
-/// This has been copied from `subxt::utils::AccountId20`, with some modifications:
+/// This has been copied from `subxt::utils::AccountId32, with some modifications:
 ///
 /// - Custom [`scale_info::TypeInfo`] implementation to match original substrate type.
 /// - Made `to_ss58check` public.

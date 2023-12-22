@@ -39,11 +39,32 @@ pub(crate) use self::extrinsics::{
 };
 
 use subxt::{
-    Config,
+    config::{
+        substrate::{
+            BlakeTwo256,
+            MultiAddress,
+            MultiSignature,
+            SubstrateExtrinsicParams,
+            SubstrateHeader,
+            H256,
+        },
+        Config,
+    },
     OnlineClient,
 };
 
-pub use subxt::PolkadotConfig as DefaultConfig;
-type Client = OnlineClient<DefaultConfig>;
+pub enum PolkamaskConfig {}
+
+impl Config for PolkamaskConfig {
+    type Hash = H256;
+    type AccountId = pmp_account::AccountId20;
+    type Address = MultiAddress<Self::AccountId, u32>;
+    type Signature = MultiSignature;
+    type Hasher = BlakeTwo256;
+    type Header = SubstrateHeader<u32, BlakeTwo256>;
+    type ExtrinsicParams = SubstrateExtrinsicParams<Self>;
+}
+
+type Client = OnlineClient<PolkamaskConfig>;
 type Balance = u128;
-type CodeHash = <DefaultConfig as Config>::Hash;
+type CodeHash = <PolkamaskConfig as Config>::Hash;

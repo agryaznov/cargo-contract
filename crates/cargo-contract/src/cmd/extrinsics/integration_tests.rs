@@ -26,7 +26,7 @@ use std::{
 };
 use subxt::{
     OnlineClient,
-    PolkadotConfig as DefaultConfig,
+    PolkadotConfig as PolkamaskConfig,
 };
 
 const CONTRACTS_NODE: &str = "substrate-contracts-node";
@@ -53,7 +53,7 @@ fn extract_contract_address(stdout: &str) -> &str {
 struct ContractsNodeProcess {
     proc: process::Child,
     tmp_dir: tempfile::TempDir,
-    client: OnlineClient<DefaultConfig>,
+    client: OnlineClient<PolkamaskConfig>,
 }
 
 impl Drop for ContractsNodeProcess {

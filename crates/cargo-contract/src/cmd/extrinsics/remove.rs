@@ -18,8 +18,8 @@ use super::{
     submit_extrinsic,
     Client,
     ContractMessageTranscoder,
-    DefaultConfig,
     ExtrinsicOpts,
+    PolkamaskConfig,
     TokenMetadata,
 };
 use crate::{
@@ -50,7 +50,7 @@ use subxt_signer::ecdsa::Keypair;
 pub struct RemoveCommand {
     /// The hash of the smart contract code already uploaded to the chain.
     #[clap(long, value_parser = parse_code_hash)]
-    code_hash: Option<<DefaultConfig as Config>::Hash>,
+    code_hash: Option<<PolkamaskConfig as Config>::Hash>,
     #[clap(flatten)]
     extrinsic_opts: ExtrinsicOpts,
     /// Export the call output as JSON.

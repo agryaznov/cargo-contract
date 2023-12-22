@@ -23,8 +23,8 @@ use super::{
     BalanceVariant,
     Client,
     ContractMessageTranscoder,
-    DefaultConfig,
     ExtrinsicOpts,
+    PolkamaskConfig,
     StorageDeposit,
     MAX_KEY_COL_WIDTH,
 };
@@ -317,7 +317,7 @@ impl Exec {
 
     async fn display_result(
         &self,
-        result: &ExtrinsicEvents<DefaultConfig>,
+        result: &ExtrinsicEvents<PolkamaskConfig>,
         code_hash: Option<CodeHash>,
         contract_address: contract_transcode::AccountId20,
         token_metadata: &TokenMetadata,
@@ -355,7 +355,7 @@ impl Exec {
     async fn instantiate_dry_run(
         &self,
     ) -> Result<
-        ContractInstantiateResult<<DefaultConfig as Config>::AccountId, Balance, ()>,
+        ContractInstantiateResult<<PolkamaskConfig as Config>::AccountId, Balance, ()>,
     > {
         let storage_deposit_limit = self.args.storage_deposit_limit;
         let call_request = InstantiateRequest {
@@ -475,7 +475,7 @@ impl InstantiateDryRunResult {
 /// A struct that encodes RPC parameters required to instantiate a new smart contract.
 #[derive(Encode)]
 struct InstantiateRequest {
-    origin: <DefaultConfig as Config>::AccountId,
+    origin: <PolkamaskConfig as Config>::AccountId,
     value: Balance,
     gas_limit: Option<Weight>,
     storage_deposit_limit: Option<Balance>,
@@ -490,5 +490,5 @@ enum Code {
     /// A Wasm module as raw bytes.
     Upload(Vec<u8>),
     /// The code hash of an on-chain Wasm blob.
-    Existing(<DefaultConfig as Config>::Hash),
+    Existing(<PolkamaskConfig as Config>::Hash),
 }

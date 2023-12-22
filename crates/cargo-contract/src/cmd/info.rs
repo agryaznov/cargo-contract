@@ -15,9 +15,11 @@
 // along with cargo-contract.  If not, see <http://www.gnu.org/licenses/>.
 
 use super::{
-    runtime_api::api::{self,},
+    runtime_api::api::{
+        self,
+    },
     Client,
-    DefaultConfig,
+    PolkamaskConfig,
 };
 use crate::{
     cmd::{
@@ -43,7 +45,7 @@ use subxt::{
 pub struct InfoCommand {
     /// The address of the contract to display info of.
     #[clap(name = "contract", long, env = "CONTRACT")]
-    contract: <DefaultConfig as Config>::AccountId,
+    contract: <PolkamaskConfig as Config>::AccountId,
     /// Websockets url of a substrate node.
     #[clap(
         name = "url",
@@ -66,7 +68,7 @@ impl InfoCommand {
 
         async_std::task::block_on(async {
             let url = self.url.clone();
-            let client = OnlineClient::<DefaultConfig>::from_url(url).await?;
+            let client = OnlineClient::<PolkamaskConfig>::from_url(url).await?;
 
             let info_result = self.fetch_contract_info(&client).await?;
 

@@ -16,7 +16,7 @@
 
 use super::{
     BalanceVariant,
-    DefaultConfig,
+    PolkamaskConfig,
     TokenMetadata,
 };
 use crate::{
@@ -84,7 +84,7 @@ pub struct DisplayEvents(Vec<Event>);
 impl DisplayEvents {
     /// Parses events and returns an object which can be serialised
     pub fn from_events(
-        result: &ExtrinsicEvents<DefaultConfig>,
+        result: &ExtrinsicEvents<PolkamaskConfig>,
         transcoder: Option<&ContractMessageTranscoder>,
         subxt_metadata: &subxt::Metadata,
     ) -> Result<DisplayEvents> {

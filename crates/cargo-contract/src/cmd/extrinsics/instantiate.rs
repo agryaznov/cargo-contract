@@ -63,7 +63,7 @@ use subxt::{
     Config,
     OnlineClient,
 };
-use subxt_signer::sr25519::Keypair;
+use subxt_signer::ecdsa::Keypair;
 
 #[derive(Debug, clap::Args)]
 pub struct InstantiateCommand {
@@ -319,7 +319,7 @@ impl Exec {
         &self,
         result: &ExtrinsicEvents<DefaultConfig>,
         code_hash: Option<CodeHash>,
-        contract_address: subxt::utils::AccountId32,
+        contract_address: contract_transcode::AccountId20,
         token_metadata: &TokenMetadata,
     ) -> Result<(), ErrorVariant> {
         let events = DisplayEvents::from_events(

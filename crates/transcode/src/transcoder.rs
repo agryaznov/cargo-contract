@@ -26,7 +26,7 @@ use super::{
         TypesByPath,
     },
     scon::Value,
-    AccountId32,
+    AccountId20,
 };
 
 use anyhow::Result;
@@ -98,7 +98,7 @@ impl TranscoderBuilder {
     }
 
     pub fn with_default_custom_type_transcoders(self) -> Self {
-        self.register_custom_type_transcoder::<AccountId32, _>(env_types::AccountId)
+        self.register_custom_type_transcoder::<AccountId20, _>(env_types::AccountId)
             .register_custom_type_decoder::<primitive_types::H256, _>(env_types::Hash)
     }
 
@@ -686,12 +686,12 @@ mod tests {
 
     #[test]
     fn transcode_account_id_custom_ss58_encoding() -> Result<()> {
-        type AccountId = AccountId32;
+        type AccountId = AccountId20;
 
         #[allow(dead_code)]
         #[derive(TypeInfo)]
         struct S {
-            no_alias: AccountId32,
+            no_alias: AccountId20,
             aliased: AccountId,
         }
 
@@ -730,7 +730,7 @@ mod tests {
             Ok(Value::Seq(Seq::new(values.collect())))
         };
 
-        transcode_roundtrip::<Vec<AccountId32>>(
+        transcode_roundtrip::<Vec<AccountId20>>(
             r#"[
                 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY,
                 5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty,
@@ -739,13 +739,13 @@ mod tests {
                 vec![
                     Value::Tuple(
                         Tuple::new(
-                            Some("AccountId32"),
+                            Some("AccountId20"),
                             vec![hex_to_bytes("0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d")?]
                         )
                     ),
                     Value::Tuple(
                         Tuple::new(
-                            Some("AccountId32"),
+                            Some("AccountId20"),
                             vec![hex_to_bytes("0x8eaf04151687736326c9fea17e25fc5287613693c912909cb226aa4794f26a48")?]
                         )
                     )

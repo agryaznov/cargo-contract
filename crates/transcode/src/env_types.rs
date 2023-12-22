@@ -15,7 +15,7 @@
 // along with cargo-contract.  If not, see <http://www.gnu.org/licenses/>.
 
 use crate::{
-    AccountId32,
+    AccountId20,
     Hex,
     Value,
 };
@@ -152,7 +152,7 @@ impl CustomTypeEncoder for AccountId {
     fn encode_value(&self, value: &Value) -> Result<Vec<u8>> {
         let account_id = match value {
             Value::Literal(literal) => {
-                AccountId32::from_str(literal).map_err(|e| {
+                AccountId20::from_str(literal).map_err(|e| {
                     anyhow::anyhow!(
                         "Error parsing AccountId from literal `{}`: {}",
                         literal,
@@ -161,7 +161,7 @@ impl CustomTypeEncoder for AccountId {
                 })?
             }
             Value::String(string) => {
-                AccountId32::from_str(string).map_err(|e| {
+                AccountId20::from_str(string).map_err(|e| {
                     anyhow::anyhow!(
                         "Error parsing AccountId from string '{}': {}",
                         string,
@@ -170,7 +170,7 @@ impl CustomTypeEncoder for AccountId {
                 })?
             }
             Value::Hex(hex) => {
-                AccountId32::try_from(hex.bytes()).map_err(|_| {
+                AccountId20::try_from(hex.bytes()).map_err(|_| {
                     anyhow::anyhow!(
                         "Error converting hex bytes `{:?}` to AccountId",
                         hex.bytes()
@@ -189,7 +189,7 @@ impl CustomTypeEncoder for AccountId {
 
 impl CustomTypeDecoder for AccountId {
     fn decode_value(&self, input: &mut &[u8]) -> Result<Value> {
-        let account_id = AccountId32::decode(input)?;
+        let account_id = AccountId20::decode(input)?;
         Ok(Value::Literal(account_id.to_ss58check()))
     }
 }

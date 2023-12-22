@@ -42,7 +42,7 @@ sp-weights = "20.0.0"
 pallet-contracts-primitives = "24.0.0"
 scale-info = "2.7.0"
 subxt = "0.30.1"
-subxt-signer = { version = "0.30.1", features = ["subxt", "sr25519"] }
+subxt-signer = { version = "0.30.1", features = ["subxt", "ecdsa"] }
 hex = "0.4.3"
 jsonrpsee = { version = "0.18.2", features = ["ws-client"] }
 

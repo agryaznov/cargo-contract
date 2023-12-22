@@ -107,7 +107,7 @@ mod transcoder;
 mod util;
 
 pub use self::{
-    account_id::AccountId32,
+    account_id::AccountId20,
     scon::{
         Hex,
         Map,
@@ -577,7 +577,7 @@ mod tests {
         let encoded_args = &encoded[4..];
 
         let expected =
-            AccountId32::from_str("5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY")
+            AccountId20::from_str("5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY")
                 .unwrap();
         assert_eq!(expected.encode(), encoded_args);
         Ok(())
@@ -597,9 +597,9 @@ mod tests {
         let encoded_args = &encoded[4..];
 
         let expected = vec![
-            AccountId32::from_str("5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY")
+            AccountId20::from_str("5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY")
                 .unwrap(),
-            AccountId32::from_str("5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty")
+            AccountId20::from_str("5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty")
                 .unwrap(),
         ];
         assert_eq!(expected.encode(), encoded_args);

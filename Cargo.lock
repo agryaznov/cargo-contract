@@ -747,7 +747,7 @@ dependencies = [
 
 [[package]]
 name = "cargo-contract"
-version = "3.0.1"
+version = "3.2.0"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -966,7 +966,7 @@ checksum = "13418e745008f7349ec7e449155f419a61b92b58a99cc3616942b926825ec76b"
 
 [[package]]
 name = "contract-build"
-version = "3.0.1"
+version = "3.2.0"
 dependencies = [
  "anyhow",
  "blake2",
@@ -1000,7 +1000,7 @@ dependencies = [
 
 [[package]]
 name = "contract-metadata"
-version = "3.0.1"
+version = "3.2.0"
 dependencies = [
  "anyhow",
  "impl-serde",
@@ -1013,7 +1013,7 @@ dependencies = [
 
 [[package]]
 name = "contract-transcode"
-version = "3.0.1"
+version = "3.2.0"
 dependencies = [
  "anyhow",
  "assert_matches",
@@ -1024,8 +1024,8 @@ dependencies = [
  "hex",
  "indexmap",
  "ink",
- "ink_env",
- "ink_metadata",
+ "ink_env 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
+ "ink_metadata 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
  "itertools",
  "nom",
  "nom-supreme",
@@ -2180,11 +2180,11 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b374fcb3c9b91f8293bdc93d69292e2ec6ea19e97e00725806d79bf563fa5e55"
 dependencies = [
  "derive_more",
- "ink_env",
+ "ink_env 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ink_macro",
- "ink_metadata",
- "ink_prelude",
- "ink_primitives",
+ "ink_metadata 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_prelude 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_primitives 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ink_storage",
  "parity-scale-codec",
 ]
@@ -2194,6 +2194,14 @@ name = "ink_allocator"
 version = "4.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1cdc9dbbc38d0e0cd7b053068112ca8ab8140b8ece33b9e197af5544ed3d97e1"
+dependencies = [
+ "cfg-if",
+]
+
+[[package]]
+name = "ink_allocator"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
 dependencies = [
  "cfg-if",
 ]
@@ -2211,7 +2219,7 @@ dependencies = [
  "heck",
  "impl-serde",
  "ink_ir",
- "ink_primitives",
+ "ink_primitives 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "itertools",
  "log",
  "parity-scale-codec",
@@ -2230,7 +2238,21 @@ checksum = "77c4af49e092a93e65d1161ce31d23c2e57d724462c96a8944acd647a52787f0"
 dependencies = [
  "blake2",
  "derive_more",
- "ink_primitives",
+ "ink_primitives 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "parity-scale-codec",
+ "secp256k1 0.27.0",
+ "sha2 0.10.6",
+ "sha3",
+]
+
+[[package]]
+name = "ink_engine"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
+dependencies = [
+ "blake2",
+ "derive_more",
+ "ink_primitives 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
  "parity-scale-codec",
  "secp256k1 0.27.0",
  "sha2 0.10.6",
@@ -2247,11 +2269,38 @@ dependencies = [
  "blake2",
  "cfg-if",
  "derive_more",
- "ink_allocator",
- "ink_engine",
- "ink_prelude",
- "ink_primitives",
- "ink_storage_traits",
+ "ink_allocator 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_engine 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_prelude 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_primitives 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_storage_traits 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "num-traits",
+ "parity-scale-codec",
+ "paste",
+ "rlibc",
+ "scale-decode 0.5.0",
+ "scale-encode 0.1.2",
+ "scale-info",
+ "secp256k1 0.27.0",
+ "sha2 0.10.6",
+ "sha3",
+ "static_assertions",
+]
+
+[[package]]
+name = "ink_env"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
+dependencies = [
+ "arrayref",
+ "blake2",
+ "cfg-if",
+ "derive_more",
+ "ink_allocator 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
+ "ink_engine 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
+ "ink_prelude 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
+ "ink_primitives 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
+ "ink_storage_traits 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
  "num-traits",
  "parity-scale-codec",
  "paste",
@@ -2287,7 +2336,7 @@ checksum = "15abf802e89909c65b6c15d0c655beb3c7ab86309626effb5d9b330d97308114"
 dependencies = [
  "ink_codegen",
  "ink_ir",
- "ink_primitives",
+ "ink_primitives 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "parity-scale-codec",
  "proc-macro2",
  "quote",
@@ -2303,8 +2352,21 @@ checksum = "4af082b4c2eb246d27b358411ef950811f851c1099aa507ba4bcdd7214d40ccd"
 dependencies = [
  "derive_more",
  "impl-serde",
- "ink_prelude",
- "ink_primitives",
+ "ink_prelude 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_primitives 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "scale-info",
+ "serde",
+]
+
+[[package]]
+name = "ink_metadata"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
+dependencies = [
+ "derive_more",
+ "impl-serde",
+ "ink_prelude 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
+ "ink_primitives 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
  "scale-info",
  "serde",
 ]
@@ -2319,13 +2381,35 @@ dependencies = [
 ]
 
 [[package]]
+name = "ink_prelude"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
+dependencies = [
+ "cfg-if",
+]
+
+[[package]]
 name = "ink_primitives"
 version = "4.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "52693c5e74600f5bd4c0f6d447ba9c4e491e4edf685eaf9f9f347a3cb1cde66b"
 dependencies = [
  "derive_more",
- "ink_prelude",
+ "ink_prelude 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "parity-scale-codec",
+ "scale-decode 0.5.0",
+ "scale-encode 0.1.2",
+ "scale-info",
+ "xxhash-rust",
+]
+
+[[package]]
+name = "ink_primitives"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
+dependencies = [
+ "derive_more",
+ "ink_prelude 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
  "parity-scale-codec",
  "scale-decode 0.5.0",
  "scale-encode 0.1.2",
@@ -2342,11 +2426,11 @@ dependencies = [
  "array-init",
  "cfg-if",
  "derive_more",
- "ink_env",
- "ink_metadata",
- "ink_prelude",
- "ink_primitives",
- "ink_storage_traits",
+ "ink_env 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_metadata 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_prelude 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_primitives 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_storage_traits 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "parity-scale-codec",
  "scale-info",
 ]
@@ -2357,9 +2441,21 @@ version = "4.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4ec58d70937c1e1490a00b84e2eb9a799f1a5331dd0e5cc68d550de1dbf6a8f4"
 dependencies = [
- "ink_metadata",
- "ink_prelude",
- "ink_primitives",
+ "ink_metadata 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_prelude 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_primitives 4.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "parity-scale-codec",
+ "scale-info",
+]
+
+[[package]]
+name = "ink_storage_traits"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
+dependencies = [
+ "ink_metadata 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
+ "ink_prelude 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
+ "ink_primitives 4.2.0 (git+https://github.com/agryaznov/ink?branch=polkamask)",
  "parity-scale-codec",
  "scale-info",
 ]

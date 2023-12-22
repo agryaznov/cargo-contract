@@ -36,7 +36,7 @@ use serde::{
 ///
 /// # Note
 ///
-/// This has been copied from `subxt::utils::AccountId32`, with some modifications:
+/// This has been copied from `subxt::utils::AccountId20`, with some modifications:
 ///
 /// - Custom [`scale_info::TypeInfo`] implementation to match original substrate type.
 /// - Made `to_ss58check` public.
@@ -44,54 +44,54 @@ use serde::{
 ///
 /// We can consider modifying the type upstream if appropriate.
 #[derive(Clone, Eq, PartialEq, Ord, PartialOrd, Encode, Decode, Debug)]
-pub struct AccountId32(pub [u8; 32]);
+pub struct AccountId20(pub [u8; 20]);
 
-/// Custom `TypeInfo` impl with path matching original `sp_core::crypto::AccountId32`
-impl scale_info::TypeInfo for AccountId32 {
+/// Custom `TypeInfo` impl with path matching original `sp_core::crypto::AccountId20`
+impl scale_info::TypeInfo for AccountId20 {
     type Identity = Self;
 
     fn type_info() -> scale_info::Type {
         scale_info::Type::builder()
-            .path(::scale_info::Path::new("AccountId32", "sp_core::crypto"))
+            .path(::scale_info::Path::new("AccountId20", "sp_core::crypto"))
             .composite(
                 scale_info::build::Fields::unnamed()
-                    .field(|f| f.ty::<[u8; 32]>().type_name("[u8; 32]").docs(&[])),
+                    .field(|f| f.ty::<[u8; 20]>().type_name("[u8; 20]").docs(&[])),
             )
     }
 }
 
-impl AsRef<[u8]> for AccountId32 {
+impl AsRef<[u8]> for AccountId20 {
     fn as_ref(&self) -> &[u8] {
         &self.0[..]
     }
 }
 
-impl AsRef<[u8; 32]> for AccountId32 {
-    fn as_ref(&self) -> &[u8; 32] {
+impl AsRef<[u8; 20]> for AccountId20 {
+    fn as_ref(&self) -> &[u8; 20] {
         &self.0
     }
 }
 
-impl From<[u8; 32]> for AccountId32 {
-    fn from(x: [u8; 32]) -> Self {
-        AccountId32(x)
+impl From<[u8; 20]> for AccountId20 {
+    fn from(x: [u8; 20]) -> Self {
+        AccountId20(x)
     }
 }
 
-impl<'a> TryFrom<&'a [u8]> for AccountId32 {
+impl<'a> TryFrom<&'a [u8]> for AccountId20 {
     type Error = ();
-    fn try_from(x: &'a [u8]) -> Result<AccountId32, ()> {
-        if x.len() == 32 {
-            let mut data = [0; 32];
+    fn try_from(x: &'a [u8]) -> Result<AccountId20, ()> {
+        if x.len() == 20 {
+            let mut data = [0; 20];
             data.copy_from_slice(x);
-            Ok(AccountId32(data))
+            Ok(AccountId20(data))
         } else {
             Err(())
         }
     }
 }
 
-impl AccountId32 {
+impl AccountId20 {
     // Return the ss58-check string for this key. Adapted from `sp_core::crypto`. We need
     // this to serialize our account appropriately but otherwise don't care.
     pub fn to_ss58check(&self) -> String {
@@ -112,8 +112,8 @@ impl AccountId32 {
         v.to_base58()
     }
 
-    // This isn't strictly needed, but to give our AccountId32 a little more usefulness,
-    // we also implement the logic needed to decode an AccountId32 from an SS58
+    // This isn't strictly needed, but to give our AccountId20 a little more usefulness,
+    // we also implement the logic needed to decode an AccountId20 from an SS58
     // encoded string. This is exposed via a `FromStr` impl.
     fn from_ss58check(s: &str) -> Result<Self, FromSs58Error> {
         const CHECKSUM_LEN: usize = 2;
@@ -143,11 +143,11 @@ impl AccountId32 {
         let result = data[prefix_len..body_len + prefix_len]
             .try_into()
             .map_err(|_| FromSs58Error::BadLength)?;
-        Ok(AccountId32(result))
+        Ok(AccountId20(result))
     }
 }
 
-/// An error obtained from trying to interpret an SS58 encoded string into an AccountId32
+/// An error obtained from trying to interpret an SS58 encoded string into an AccountId20
 #[derive(thiserror::Error, Clone, Copy, Eq, PartialEq, Debug)]
 #[allow(missing_docs)]
 pub enum FromSs58Error {
@@ -175,7 +175,7 @@ fn ss58hash(data: &[u8]) -> Vec<u8> {
     ctx.finalize().to_vec()
 }
 
-impl Serialize for AccountId32 {
+impl Serialize for AccountId20 {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -184,26 +184,26 @@ impl Serialize for AccountId32 {
     }
 }
 
-impl<'de> Deserialize<'de> for AccountId32 {
+impl<'de> Deserialize<'de> for AccountId20 {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: serde::Deserializer<'de>,
     {
-        AccountId32::from_ss58check(&String::deserialize(deserializer)?)
+        AccountId20::from_ss58check(&String::deserialize(deserializer)?)
             .map_err(|e| serde::de::Error::custom(format!("{e:?}")))
     }
 }
 
-impl std::fmt::Display for AccountId32 {
+impl std::fmt::Display for AccountId20 {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(f, "{}", self.to_ss58check())
     }
 }
 
-impl std::str::FromStr for AccountId32 {
+impl std::str::FromStr for AccountId20 {
     type Err = FromSs58Error;
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        AccountId32::from_ss58check(s)
+        AccountId20::from_ss58check(s)
     }
 }
 
@@ -226,7 +226,7 @@ mod test {
             let substrate_account = keyring.to_account_id();
             // Avoid "From" impl hidden behind "substrate-compat" feature so that this
             // test can work either way:
-            let local_account = AccountId32(substrate_account.clone().into());
+            let local_account = AccountId20(substrate_account.clone().into());
 
             // Both should encode to ss58 the same way:
             let substrate_ss58 = substrate_account.to_ss58check();
@@ -234,11 +234,11 @@ mod test {
 
             // Both should decode from ss58 back to the same:
             assert_eq!(
-                sp_core::crypto::AccountId32::from_ss58check(&substrate_ss58).unwrap(),
+                sp_core::crypto::AccountId20::from_ss58check(&substrate_ss58).unwrap(),
                 substrate_account
             );
             assert_eq!(
-                AccountId32::from_ss58check(&substrate_ss58).unwrap(),
+                AccountId20::from_ss58check(&substrate_ss58).unwrap(),
                 local_account
             );
         }

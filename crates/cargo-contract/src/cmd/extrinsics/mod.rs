@@ -60,6 +60,8 @@ use contract_build::{
     Verbosity,
     VerbosityFlags,
 };
+use contract_transcode::AccountId20;
+
 use pallet_contracts_primitives::ContractResult;
 use scale::{
     Decode,
@@ -71,12 +73,11 @@ use subxt::{
     blocks,
     config,
     tx,
-    utils::AccountId32,
     Config,
     OnlineClient,
 };
 use subxt_signer::{
-    sr25519::Keypair,
+    ecdsa::Keypair,
     SecretUri,
 };
 
@@ -319,7 +320,7 @@ impl WasmCode {
 }
 
 /// Get the account id from the Keypair
-pub fn account_id(keypair: &Keypair) -> AccountId32 {
+pub fn account_id(keypair: &Keypair) -> AccountId20 {
     subxt::tx::Signer::<DefaultConfig>::account_id(keypair)
 }
 

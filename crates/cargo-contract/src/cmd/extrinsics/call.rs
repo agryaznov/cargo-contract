@@ -61,7 +61,7 @@ use subxt::{
     Config,
     OnlineClient,
 };
-use subxt_signer::sr25519::Keypair;
+use subxt_signer::ecdsa::Keypair;
 
 #[derive(Debug, clap::Args)]
 #[clap(name = "call", about = "Call a contract")]

@@ -24,7 +24,6 @@ use super::{
     Client,
     ContractMessageTranscoder,
     ExtrinsicOpts,
-    PolkamaskConfig,
     StorageDeposit,
     MAX_KEY_COL_WIDTH,
 };
@@ -40,6 +39,7 @@ use crate::{
         runtime_api::api,
         Balance,
         CodeHash,
+        PolkamaskConfig,
     },
     DEFAULT_KEY_COL_WIDTH,
 };

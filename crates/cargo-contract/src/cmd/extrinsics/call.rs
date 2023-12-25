@@ -24,7 +24,6 @@ use super::{
     Client,
     ContractMessageTranscoder,
     ExtrinsicOpts,
-    PolkamaskConfig,
     StorageDeposit,
     TokenMetadata,
     MAX_KEY_COL_WIDTH,
@@ -40,6 +39,7 @@ use crate::{
         },
         runtime_api::api,
         Balance,
+        PolkamaskConfig,
     },
     DEFAULT_KEY_COL_WIDTH,
 };
@@ -180,7 +180,7 @@ impl CallCommand {
             .map(|bv| bv.denominate_balance(&token_metadata))
             .transpose()?;
         let call_request = CallRequest {
-            origin: account_id(signer),
+            origin: account_id(signer) as contract_transcode::AccountId20,
             dest: self.contract.clone(),
             value: self.value.denominate_balance(&token_metadata)?,
             gas_limit: None,

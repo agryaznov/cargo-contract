@@ -21,7 +21,6 @@ use super::{
     submit_extrinsic,
     Client,
     ExtrinsicOpts,
-    PolkamaskConfig,
     TokenMetadata,
 };
 use crate::{
@@ -37,6 +36,7 @@ use crate::{
         },
         Balance,
         CodeHash,
+        PolkamaskConfig,
     },
     name_value_println,
 };

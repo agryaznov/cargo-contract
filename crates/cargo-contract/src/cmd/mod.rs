@@ -57,7 +57,7 @@ pub enum PolkamaskConfig {}
 
 impl Config for PolkamaskConfig {
     type Hash = H256;
-    type AccountId = pmp_account::AccountId20;
+    type AccountId = contract_transcode::AccountId20;
     type Address = MultiAddress<Self::AccountId, u32>;
     type Signature = MultiSignature;
     type Hasher = BlakeTwo256;

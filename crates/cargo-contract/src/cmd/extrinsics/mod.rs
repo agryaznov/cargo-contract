@@ -50,6 +50,7 @@ use crate::{
     cmd::{
         Balance,
         Client,
+        PolkamaskConfig,
     },
     DEFAULT_KEY_COL_WIDTH,
 };
@@ -96,7 +97,6 @@ pub use contract_transcode::ContractMessageTranscoder;
 pub use error::ErrorVariant;
 pub use instantiate::InstantiateCommand;
 pub use remove::RemoveCommand;
-pub use subxt::PolkadotConfig as PolkamaskConfig;
 pub use upload::UploadCommand;
 
 /// Arguments required for creating and sending an extrinsic to a substrate node.

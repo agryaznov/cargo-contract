@@ -16,11 +16,13 @@
 
 use super::{
     BalanceVariant,
-    PolkamaskConfig,
     TokenMetadata,
 };
 use crate::{
-    cmd::runtime_api::api::contracts::events::ContractEmitted,
+    cmd::{
+        runtime_api::api::contracts::events::ContractEmitted,
+        PolkamaskConfig,
+    },
     DEFAULT_KEY_COL_WIDTH,
 };
 use colored::Colorize as _;

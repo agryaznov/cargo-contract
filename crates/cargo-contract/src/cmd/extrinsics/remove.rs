@@ -19,7 +19,6 @@ use super::{
     Client,
     ContractMessageTranscoder,
     ExtrinsicOpts,
-    PolkamaskConfig,
     TokenMetadata,
 };
 use crate::{
@@ -34,6 +33,7 @@ use crate::{
             contracts::events::CodeRemoved,
         },
         CodeHash,
+        PolkamaskConfig,
     },
     name_value_println,
 };

@@ -1024,7 +1024,6 @@ dependencies = [
  "jsonrpsee 0.18.2",
  "pallet-contracts-primitives",
  "parity-scale-codec",
- "pmp-account",
  "predicates",
  "regex",
  "rust_decimal",
@@ -3691,24 +3690,6 @@ name = "platforms"
 version = "3.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "14e6ab3f592e6fb464fc9712d8d6e6912de6473954635fd76a589d832cffcbb0"
-
-[[package]]
-name = "pmp-account"
-version = "0.1.0"
-dependencies = [
- "hex",
- "impl-serde",
- "libsecp256k1",
- "log",
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-core 21.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-io 23.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-runtime 24.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-runtime-interface 17.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
-]
 
 [[package]]
 name = "polling"

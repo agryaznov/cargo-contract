@@ -36,19 +36,15 @@ rust_decimal = "1.29"
 
 # dependencies for extrinsics (deploying and calling a contract)
 async-std = { version = "1.12.0", features = ["attributes", "tokio1"] }
-sp-core = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask", default-features = false }
-sp-runtime = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask", default-features = false }
-sp-weights = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask", default-features = false }
-pallet-contracts-primitives = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask", default-features = false }
+sp-core = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
+sp-runtime = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
+sp-weights = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
+pallet-contracts-primitives = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
 scale-info = "2.7.0"
 subxt = "0.30.1"
 subxt-signer = { version = "0.30.1", features = ["subxt", "ecdsa"] }
 hex = "0.4.3"
 jsonrpsee = { version = "0.18.2", features = ["ws-client"] }
-
-# polkamask
-pmp-account = { path = "/usr/dev/polka/polkamask/primitives/account", default-features = false }
-
 
 [build-dependencies]
 anyhow = "1.0.71"
@@ -67,7 +63,6 @@ tempfile = "3.5.0"
 # generation code with `#[cfg(feature = "std")]`.
 default = ["std"]
 std = [
-    "pmp-account/std"
 ]
 
 # Enable this to execute long running tests, which usually are only run on the CI server

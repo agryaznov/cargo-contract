@@ -53,11 +53,13 @@ use subxt::{
     OnlineClient,
 };
 
+pub use subxt::utils::AccountId20;
+
 pub enum PolkamaskConfig {}
 
 impl Config for PolkamaskConfig {
     type Hash = H256;
-    type AccountId = contract_transcode::AccountId20;
+    type AccountId = AccountId20;
     type Address = MultiAddress<Self::AccountId, u32>;
     type Signature = MultiSignature;
     type Hasher = BlakeTwo256;
@@ -68,3 +70,10 @@ impl Config for PolkamaskConfig {
 type Client = OnlineClient<PolkamaskConfig>;
 type Balance = u128;
 type CodeHash = <PolkamaskConfig as Config>::Hash;
+
+// impl From<subxt_signer::ecdsa::PublicKey> for subxt::utils::MultiAddress<contract_transcode::AccountId20, u32> {
+//     fn from(value: subxt_signer::ecdsa::PublicKey) -> Self {
+//         let val: contract_transcode::AccountId20 = value.into();
+//         val.into()
+//     }
+// }

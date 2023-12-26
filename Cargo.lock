@@ -369,12 +369,6 @@ dependencies = [
 
 [[package]]
 name = "array-bytes"
-version = "4.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f52f63c5c1316a16a4b35eaac8b76a98248961a533f061684cb2a7cb0eafb6c6"
-
-[[package]]
-name = "array-bytes"
 version = "6.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6f840fb7195bcfc5e17ea40c26e5ce6d5b9ce5d584466e17703209657e459ae0"
@@ -922,12 +916,6 @@ dependencies = [
 
 [[package]]
 name = "bs58"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "771fe0050b883fcc3ea2359b1a96bcfbc090b7116eae7c3c512c7a083fdf23d3"
-
-[[package]]
-name = "bs58"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f5353f36341f7451062466f0b755b96ac3a9547e4d7f6b70d603fc721a7d7896"
@@ -1030,9 +1018,9 @@ dependencies = [
  "scale-info",
  "serde",
  "serde_json",
- "sp-core 21.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-runtime 24.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-weights 20.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-core",
+ "sp-runtime",
+ "sp-weights",
  "substrate-build-script-utils",
  "subxt",
  "subxt-signer",
@@ -1305,8 +1293,8 @@ dependencies = [
  "hex",
  "indexmap 1.9.3",
  "ink",
- "ink_env 4.2.0",
- "ink_metadata 4.2.0",
+ "ink_env",
+ "ink_metadata",
  "itertools 0.10.5",
  "nom",
  "nom-supreme",
@@ -1315,7 +1303,7 @@ dependencies = [
  "scale-info",
  "serde",
  "serde_json",
- "sp-core 21.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-core",
  "sp-keyring",
  "thiserror",
  "tracing",
@@ -1766,32 +1754,11 @@ checksum = "545b22097d44f8a9581187cdf93de7a71e4722bf51200cfaba810865b49a495d"
 
 [[package]]
 name = "ed25519"
-version = "1.5.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "91cff35c70bba8a626e3185d8cd48cc11b5437e1a5bcd15b9b5fa3c64b6dfee7"
-dependencies = [
- "signature 1.6.4",
-]
-
-[[package]]
-name = "ed25519"
 version = "2.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "115531babc129696a58c64a4fef0a8bf9e9698629fb97e9e40767d235cfbcd53"
 dependencies = [
- "signature 2.2.0",
-]
-
-[[package]]
-name = "ed25519-dalek"
-version = "1.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c762bae6dcaf24c4c84667b8579785430908723d5c889f469d76a41d59cc7a9d"
-dependencies = [
- "curve25519-dalek 3.2.0",
- "ed25519 1.5.3",
- "sha2 0.9.9",
- "zeroize",
+ "signature",
 ]
 
 [[package]]
@@ -1801,7 +1768,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1f628eaec48bfd21b865dc2950cfa014450c01d2fa2b69a86c2fd5844ec523c0"
 dependencies = [
  "curve25519-dalek 4.1.1",
- "ed25519 2.2.3",
+ "ed25519",
  "sha2 0.10.8",
  "subtle",
 ]
@@ -2541,16 +2508,15 @@ checksum = "8e04e2fd2b8188ea827b32ef11de88377086d690286ab35747ef7f9bf3ccb590"
 
 [[package]]
 name = "ink"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e9fd4f77d66c94aa7f27a7cf41cd2edbc2229afe34ec475c3f32b6e8fdf561a0"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
 dependencies = [
  "derive_more",
- "ink_env 4.3.0",
+ "ink_env",
  "ink_macro",
- "ink_metadata 4.3.0",
- "ink_prelude 4.3.0",
- "ink_primitives 4.3.0",
+ "ink_metadata",
+ "ink_prelude",
+ "ink_primitives",
  "ink_storage",
  "parity-scale-codec",
 ]
@@ -2564,19 +2530,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "ink_allocator"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "870914970470fd77a3f42d3c5d1918b562817af127fd063ee8b1d9fbf59aa1fe"
-dependencies = [
- "cfg-if",
-]
-
-[[package]]
 name = "ink_codegen"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "22d79057b2565df31a10af6510a44b161093f110c5f9c22ad02c20af9cea4c29"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
 dependencies = [
  "blake2",
  "derive_more",
@@ -2585,7 +2541,7 @@ dependencies = [
  "heck",
  "impl-serde",
  "ink_ir",
- "ink_primitives 4.3.0",
+ "ink_primitives",
  "itertools 0.10.5",
  "log",
  "parity-scale-codec",
@@ -2603,22 +2559,7 @@ source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe80
 dependencies = [
  "blake2",
  "derive_more",
- "ink_primitives 4.2.0",
- "parity-scale-codec",
- "secp256k1 0.27.0",
- "sha2 0.10.8",
- "sha3",
-]
-
-[[package]]
-name = "ink_engine"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "722ec3a5eb557124b001c60ff8f961079f6d566af643edea579f152b15822fe5"
-dependencies = [
- "blake2",
- "derive_more",
- "ink_primitives 4.3.0",
+ "ink_primitives",
  "parity-scale-codec",
  "secp256k1 0.27.0",
  "sha2 0.10.8",
@@ -2634,11 +2575,11 @@ dependencies = [
  "blake2",
  "cfg-if",
  "derive_more",
- "ink_allocator 4.2.0",
- "ink_engine 4.2.0",
- "ink_prelude 4.2.0",
- "ink_primitives 4.2.0",
- "ink_storage_traits 4.2.0",
+ "ink_allocator",
+ "ink_engine",
+ "ink_prelude",
+ "ink_primitives",
+ "ink_storage_traits",
  "num-traits",
  "parity-scale-codec",
  "paste",
@@ -2653,38 +2594,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "ink_env"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "584e73bc0982f6f1a067bb63ebc75262f6dc54ed2a17060efa73eaba84dc9308"
-dependencies = [
- "arrayref",
- "blake2",
- "cfg-if",
- "derive_more",
- "ink_allocator 4.3.0",
- "ink_engine 4.3.0",
- "ink_prelude 4.3.0",
- "ink_primitives 4.3.0",
- "ink_storage_traits 4.3.0",
- "num-traits",
- "parity-scale-codec",
- "paste",
- "rlibc",
- "scale-decode 0.9.0",
- "scale-encode 0.5.0",
- "scale-info",
- "secp256k1 0.27.0",
- "sha2 0.10.8",
- "sha3",
- "static_assertions",
-]
-
-[[package]]
 name = "ink_ir"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5b529c941518e8f450395fab9fe8ebba0a7acbb18778fc7e0a87f6248286ec72"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
 dependencies = [
  "blake2",
  "either",
@@ -2696,13 +2608,12 @@ dependencies = [
 
 [[package]]
 name = "ink_macro"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8579576c995ca9baa032584beca19155cbd63b6739570aa9da4d35a0415f4be8"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
 dependencies = [
  "ink_codegen",
  "ink_ir",
- "ink_primitives 4.3.0",
+ "ink_primitives",
  "parity-scale-codec",
  "proc-macro2",
  "quote",
@@ -2717,22 +2628,8 @@ source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe80
 dependencies = [
  "derive_more",
  "impl-serde",
- "ink_prelude 4.2.0",
- "ink_primitives 4.2.0",
- "scale-info",
- "serde",
-]
-
-[[package]]
-name = "ink_metadata"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3fddff95ce3e01f42002fdaf96edda691dbccb08c9ae76d7101daa1fa634e601"
-dependencies = [
- "derive_more",
- "impl-serde",
- "ink_prelude 4.3.0",
- "ink_primitives 4.3.0",
+ "ink_prelude",
+ "ink_primitives",
  "scale-info",
  "serde",
 ]
@@ -2741,15 +2638,6 @@ dependencies = [
 name = "ink_prelude"
 version = "4.2.0"
 source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
-dependencies = [
- "cfg-if",
-]
-
-[[package]]
-name = "ink_prelude"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d8cfdf91d2b442f08efb34dd3780fd6fbd3d033f63b42f62684fe47534948ef6"
 dependencies = [
  "cfg-if",
 ]
@@ -2760,7 +2648,7 @@ version = "4.2.0"
 source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
 dependencies = [
  "derive_more",
- "ink_prelude 4.2.0",
+ "ink_prelude",
  "parity-scale-codec",
  "scale-decode 0.5.0",
  "scale-encode 0.1.2",
@@ -2769,34 +2657,18 @@ dependencies = [
 ]
 
 [[package]]
-name = "ink_primitives"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6414bcad12ebf0c3abbbb192a09e4d06e22f662cf3e19545204e1b0684be12a1"
-dependencies = [
- "derive_more",
- "ink_prelude 4.3.0",
- "parity-scale-codec",
- "scale-decode 0.9.0",
- "scale-encode 0.5.0",
- "scale-info",
- "xxhash-rust",
-]
-
-[[package]]
 name = "ink_storage"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bd728409de235de0489f71ee2d1beb320613fdb50dda9fa1c564825f4ad06daa"
+version = "4.2.0"
+source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
 dependencies = [
  "array-init",
  "cfg-if",
  "derive_more",
- "ink_env 4.3.0",
- "ink_metadata 4.3.0",
- "ink_prelude 4.3.0",
- "ink_primitives 4.3.0",
- "ink_storage_traits 4.3.0",
+ "ink_env",
+ "ink_metadata",
+ "ink_prelude",
+ "ink_primitives",
+ "ink_storage_traits",
  "parity-scale-codec",
  "scale-info",
 ]
@@ -2806,22 +2678,9 @@ name = "ink_storage_traits"
 version = "4.2.0"
 source = "git+https://github.com/agryaznov/ink?branch=polkamask#23935429f06cbe807953ff01a14bd16b383eb505"
 dependencies = [
- "ink_metadata 4.2.0",
- "ink_prelude 4.2.0",
- "ink_primitives 4.2.0",
- "parity-scale-codec",
- "scale-info",
-]
-
-[[package]]
-name = "ink_storage_traits"
-version = "4.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a8dcb50f70377ac35c28d63b06383a0a3cbb79542ea4cdc5b00e3e2b3de4a549"
-dependencies = [
- "ink_metadata 4.3.0",
- "ink_prelude 4.3.0",
- "ink_primitives 4.3.0",
+ "ink_metadata",
+ "ink_prelude",
+ "ink_primitives",
  "parity-scale-codec",
  "scale-info",
 ]
@@ -3530,9 +3389,9 @@ dependencies = [
  "bitflags 1.3.2",
  "parity-scale-codec",
  "scale-info",
- "sp-runtime 24.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-runtime",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-weights 20.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-weights",
 ]
 
 [[package]]
@@ -4289,23 +4148,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "scale-bits"
-version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "036575c29af9b6e4866ffb7fa055dbf623fe7a9cc159b33786de6013a6969d89"
-dependencies = [
- "parity-scale-codec",
- "scale-info",
-]
-
-[[package]]
 name = "scale-decode"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c7e5527e4b3bf079d4c0b2f253418598c380722ba37ef20fac9088081407f2b6"
 dependencies = [
  "parity-scale-codec",
- "scale-bits 0.3.0",
+ "scale-bits",
  "scale-decode-derive 0.5.0",
  "scale-info",
  "thiserror",
@@ -4319,25 +4168,11 @@ checksum = "f0459d00b0dbd2e765009924a78ef36b2ff7ba116292d732f00eb0ed8e465d15"
 dependencies = [
  "parity-scale-codec",
  "primitive-types",
- "scale-bits 0.3.0",
+ "scale-bits",
  "scale-decode-derive 0.7.0",
  "scale-info",
  "smallvec",
  "thiserror",
-]
-
-[[package]]
-name = "scale-decode"
-version = "0.9.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7789f5728e4e954aaa20cadcc370b99096fb8645fca3c9333ace44bb18f30095"
-dependencies = [
- "derive_more",
- "parity-scale-codec",
- "scale-bits 0.4.0",
- "scale-decode-derive 0.9.0",
- "scale-info",
- "smallvec",
 ]
 
 [[package]]
@@ -4367,19 +4202,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "scale-decode-derive"
-version = "0.9.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "27873eb6005868f8cc72dcfe109fae664cf51223d35387bc2f28be4c28d94c47"
-dependencies = [
- "darling 0.14.4",
- "proc-macro-crate 1.3.1",
- "proc-macro2",
- "quote",
- "syn 1.0.109",
-]
-
-[[package]]
 name = "scale-encode"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4399,24 +4221,11 @@ checksum = "b0401b7cdae8b8aa33725f3611a051358d5b32887ecaa0fda5953a775b2d4d76"
 dependencies = [
  "parity-scale-codec",
  "primitive-types",
- "scale-bits 0.3.0",
+ "scale-bits",
  "scale-encode-derive 0.3.0",
  "scale-info",
  "smallvec",
  "thiserror",
-]
-
-[[package]]
-name = "scale-encode"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6d70cb4b29360105483fac1ed567ff95d65224a14dd275b6303ed0a654c78de5"
-dependencies = [
- "derive_more",
- "parity-scale-codec",
- "scale-encode-derive 0.5.0",
- "scale-info",
- "smallvec",
 ]
 
 [[package]]
@@ -4437,19 +4246,6 @@ name = "scale-encode-derive"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "316e0fb10ec0fee266822bd641bab5e332a4ab80ef8c5b5ff35e5401a394f5a6"
-dependencies = [
- "darling 0.14.4",
- "proc-macro-crate 1.3.1",
- "proc-macro2",
- "quote",
- "syn 1.0.109",
-]
-
-[[package]]
-name = "scale-encode-derive"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "995491f110efdc6bea96d6a746140e32bfceb4ea47510750a5467295a4707a25"
 dependencies = [
  "darling 0.14.4",
  "proc-macro-crate 1.3.1",
@@ -4495,7 +4291,7 @@ dependencies = [
  "either",
  "frame-metadata 15.1.0",
  "parity-scale-codec",
- "scale-bits 0.3.0",
+ "scale-bits",
  "scale-decode 0.7.0",
  "scale-encode 0.3.0",
  "scale-info",
@@ -4802,12 +4598,6 @@ dependencies = [
 
 [[package]]
 name = "signature"
-version = "1.6.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "74233d3b3b2f6d4b006dc19dee745e73e2a6bfb6f93607cd3b02bd5b00797d7c"
-
-[[package]]
-name = "signature"
 version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "77549399552de45a898a580c1b41d445bf730df867cc44e6c0233bbc4b8329de"
@@ -4868,7 +4658,7 @@ dependencies = [
  "base64 0.21.5",
  "bip39",
  "blake2-rfc",
- "bs58 0.5.0",
+ "bs58",
  "crossbeam-queue",
  "derive_more",
  "ed25519-zebra",
@@ -4991,43 +4781,14 @@ dependencies = [
 [[package]]
 name = "sp-application-crypto"
 version = "23.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "899492ea547816d5dfe9a5a2ecc32f65a7110805af6da3380aa4902371b31dc2"
-dependencies = [
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-core 21.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-io 23.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "sp-application-crypto"
-version = "23.0.0"
 source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
  "serde",
- "sp-core 21.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-io 23.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-core",
+ "sp-io",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
-]
-
-[[package]]
-name = "sp-arithmetic"
-version = "16.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bb6020576e544c6824a51d651bc8df8e6ab67cd59f1c9ac09868bb81a5199ded"
-dependencies = [
- "integer-sqrt",
- "num-traits",
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "static_assertions",
 ]
 
 [[package]]
@@ -5047,60 +4808,15 @@ dependencies = [
 [[package]]
 name = "sp-core"
 version = "21.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f18d9e2f67d8661f9729f35347069ac29d92758b59135176799db966947a7336"
-dependencies = [
- "array-bytes 4.2.0",
- "bitflags 1.3.2",
- "blake2",
- "bounded-collections",
- "bs58 0.4.0",
- "dyn-clonable",
- "ed25519-zebra",
- "futures",
- "hash-db",
- "hash256-std-hasher",
- "impl-serde",
- "lazy_static",
- "libsecp256k1",
- "log",
- "merlin 2.0.1",
- "parity-scale-codec",
- "parking_lot",
- "paste",
- "primitive-types",
- "rand 0.8.5",
- "regex",
- "scale-info",
- "schnorrkel 0.9.1",
- "secp256k1 0.24.3",
- "secrecy",
- "serde",
- "sp-core-hashing 9.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-debug-derive 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-externalities 0.19.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-runtime-interface 17.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-storage 13.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "ss58-registry",
- "substrate-bip39",
- "thiserror",
- "tiny-bip39",
- "zeroize",
-]
-
-[[package]]
-name = "sp-core"
-version = "21.0.0"
 source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
- "array-bytes 6.2.2",
+ "array-bytes",
  "arrayvec 0.7.4",
  "bandersnatch_vrfs",
  "bitflags 1.3.2",
  "blake2",
  "bounded-collections",
- "bs58 0.5.0",
+ "bs58",
  "dyn-clonable",
  "ed25519-zebra",
  "futures",
@@ -5123,11 +4839,11 @@ dependencies = [
  "secrecy",
  "serde",
  "sp-core-hashing 9.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-debug-derive 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-externalities 0.19.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-runtime-interface 17.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-debug-derive",
+ "sp-externalities",
+ "sp-runtime-interface",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-storage 13.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-storage",
  "ss58-registry",
  "substrate-bip39",
  "thiserror",
@@ -5167,17 +4883,6 @@ dependencies = [
 [[package]]
 name = "sp-debug-derive"
 version = "8.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c7f531814d2f16995144c74428830ccf7d94ff4a7749632b83ad8199b181140c"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.42",
-]
-
-[[package]]
-name = "sp-debug-derive"
-version = "8.0.0"
 source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
  "proc-macro2",
@@ -5188,51 +4893,12 @@ dependencies = [
 [[package]]
 name = "sp-externalities"
 version = "0.19.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a0f71c671e01a8ca60da925d43a1b351b69626e268b8837f8371e320cf1dd100"
-dependencies = [
- "environmental",
- "parity-scale-codec",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-storage 13.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "sp-externalities"
-version = "0.19.0"
 source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
  "environmental",
  "parity-scale-codec",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-storage 13.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
-]
-
-[[package]]
-name = "sp-io"
-version = "23.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9d597e35a9628fe7454b08965b2442e3ec0f264b0a90d41328e87422cec02e99"
-dependencies = [
- "bytes",
- "ed25519 1.5.3",
- "ed25519-dalek 1.0.1",
- "futures",
- "libsecp256k1",
- "log",
- "parity-scale-codec",
- "rustversion",
- "secp256k1 0.24.3",
- "sp-core 21.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-externalities 0.19.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-keystore 0.27.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-runtime-interface 17.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-state-machine 0.28.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-tracing 10.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-trie 22.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "tracing",
- "tracing-core",
+ "sp-storage",
 ]
 
 [[package]]
@@ -5241,20 +4907,20 @@ version = "23.0.0"
 source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
  "bytes",
- "ed25519-dalek 2.1.0",
+ "ed25519-dalek",
  "libsecp256k1",
  "log",
  "parity-scale-codec",
  "rustversion",
  "secp256k1 0.24.3",
- "sp-core 21.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-externalities 0.19.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-keystore 0.27.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-runtime-interface 17.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-state-machine 0.28.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-core",
+ "sp-externalities",
+ "sp-keystore",
+ "sp-runtime-interface",
+ "sp-state-machine",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-tracing 10.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-trie 22.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-tracing",
+ "sp-trie",
  "tracing",
  "tracing-core",
 ]
@@ -5262,50 +4928,24 @@ dependencies = [
 [[package]]
 name = "sp-keyring"
 version = "24.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4673405248580504a8bc4e09615ab25ccb182dfaccd27e000fda9dcb2ca1dab1"
+source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
  "lazy_static",
- "sp-core 21.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-runtime 24.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sp-core",
+ "sp-runtime",
  "strum",
 ]
 
 [[package]]
 name = "sp-keystore"
 version = "0.27.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9be3cdd67cc1d9c1db17c5cbc4ec4924054a8437009d167f21f6590797e4aa45"
-dependencies = [
- "futures",
- "parity-scale-codec",
- "parking_lot",
- "sp-core 21.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-externalities 0.19.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "thiserror",
-]
-
-[[package]]
-name = "sp-keystore"
-version = "0.27.0"
 source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
  "parity-scale-codec",
  "parking_lot",
- "sp-core 21.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-externalities 0.19.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-core",
+ "sp-externalities",
  "thiserror",
-]
-
-[[package]]
-name = "sp-panic-handler"
-version = "8.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ebd2de46003fa8212426838ca71cd42ee36a26480ba9ffea983506ce03131033"
-dependencies = [
- "backtrace",
- "lazy_static",
- "regex",
 ]
 
 [[package]]
@@ -5316,29 +4956,6 @@ dependencies = [
  "backtrace",
  "lazy_static",
  "regex",
-]
-
-[[package]]
-name = "sp-runtime"
-version = "24.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "21c5bfc764a1a8259d7e8f7cfd22c84006275a512c958d3ff966c92151e134d5"
-dependencies = [
- "either",
- "hash256-std-hasher",
- "impl-trait-for-tuples",
- "log",
- "parity-scale-codec",
- "paste",
- "rand 0.8.5",
- "scale-info",
- "serde",
- "sp-application-crypto 23.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-arithmetic 16.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-core 21.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-io 23.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-weights 20.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -5355,31 +4972,12 @@ dependencies = [
  "rand 0.8.5",
  "scale-info",
  "serde",
- "sp-application-crypto 23.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-arithmetic 16.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-core 21.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-io 23.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-application-crypto",
+ "sp-arithmetic",
+ "sp-core",
+ "sp-io",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-weights 20.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
-]
-
-[[package]]
-name = "sp-runtime-interface"
-version = "17.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6e676128182f90015e916f806cba635c8141e341e7abbc45d25525472e1bbce8"
-dependencies = [
- "bytes",
- "impl-trait-for-tuples",
- "parity-scale-codec",
- "primitive-types",
- "sp-externalities 0.19.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-runtime-interface-proc-macro 11.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-storage 13.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-tracing 10.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-wasm-interface 14.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "static_assertions",
+ "sp-weights",
 ]
 
 [[package]]
@@ -5391,26 +4989,13 @@ dependencies = [
  "impl-trait-for-tuples",
  "parity-scale-codec",
  "primitive-types",
- "sp-externalities 0.19.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-runtime-interface-proc-macro 11.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-externalities",
+ "sp-runtime-interface-proc-macro",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-storage 13.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-tracing 10.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-wasm-interface 14.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-storage",
+ "sp-tracing",
+ "sp-wasm-interface",
  "static_assertions",
-]
-
-[[package]]
-name = "sp-runtime-interface-proc-macro"
-version = "11.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a5d5bd5566fe5633ec48dfa35ab152fd29f8a577c21971e1c6db9f28afb9bbb9"
-dependencies = [
- "Inflector",
- "proc-macro-crate 1.3.1",
- "proc-macro2",
- "quote",
- "syn 2.0.42",
 ]
 
 [[package]]
@@ -5428,27 +5013,6 @@ dependencies = [
 [[package]]
 name = "sp-state-machine"
 version = "0.28.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9ef45d31f9e7ac648f8899a0cd038a3608f8499028bff55b6c799702592325b6"
-dependencies = [
- "hash-db",
- "log",
- "parity-scale-codec",
- "parking_lot",
- "rand 0.8.5",
- "smallvec",
- "sp-core 21.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-externalities 0.19.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-panic-handler 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-trie 22.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "thiserror",
- "tracing",
-]
-
-[[package]]
-name = "sp-state-machine"
-version = "0.28.0"
 source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
  "hash-db",
@@ -5457,11 +5021,11 @@ dependencies = [
  "parking_lot",
  "rand 0.8.5",
  "smallvec",
- "sp-core 21.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-externalities 0.19.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-panic-handler 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-core",
+ "sp-externalities",
+ "sp-panic-handler",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-trie 22.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-trie",
  "thiserror",
  "tracing",
  "trie-db",
@@ -5481,41 +5045,14 @@ source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2
 [[package]]
 name = "sp-storage"
 version = "13.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "94294be83f11d4958cfea89ed5798f0b6605f5defc3a996948848458abbcc18e"
-dependencies = [
- "impl-serde",
- "parity-scale-codec",
- "ref-cast",
- "serde",
- "sp-debug-derive 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "sp-storage"
-version = "13.0.0"
 source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
  "impl-serde",
  "parity-scale-codec",
  "ref-cast",
  "serde",
- "sp-debug-derive 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-debug-derive",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
-]
-
-[[package]]
-name = "sp-tracing"
-version = "10.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "357f7591980dd58305956d32f8f6646d0a8ea9ea0e7e868e46f53b68ddf00cec"
-dependencies = [
- "parity-scale-codec",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "tracing",
- "tracing-core",
- "tracing-subscriber 0.2.25",
 ]
 
 [[package]]
@@ -5533,30 +5070,6 @@ dependencies = [
 [[package]]
 name = "sp-trie"
 version = "22.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "48e4eeb7ef23f79eba8609db79ef9cef242f994f1f87a3c0387b4b5f177fda74"
-dependencies = [
- "ahash 0.8.6",
- "hash-db",
- "hashbrown 0.13.2",
- "lazy_static",
- "memory-db",
- "nohash-hasher",
- "parity-scale-codec",
- "parking_lot",
- "scale-info",
- "schnellru",
- "sp-core 21.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "thiserror",
- "tracing",
- "trie-db",
- "trie-root",
-]
-
-[[package]]
-name = "sp-trie"
-version = "22.0.0"
 source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
  "ahash 0.8.6",
@@ -5569,26 +5082,12 @@ dependencies = [
  "parking_lot",
  "scale-info",
  "schnellru",
- "sp-core 21.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-core",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
  "thiserror",
  "tracing",
  "trie-db",
  "trie-root",
-]
-
-[[package]]
-name = "sp-wasm-interface"
-version = "14.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a19c122609ca5d8246be6386888596320d03c7bc880959eaa2c36bcd5acd6846"
-dependencies = [
- "anyhow",
- "impl-trait-for-tuples",
- "log",
- "parity-scale-codec",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "wasmtime",
 ]
 
 [[package]]
@@ -5607,31 +5106,15 @@ dependencies = [
 [[package]]
 name = "sp-weights"
 version = "20.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "45d084c735544f70625b821c3acdbc7a2fc1893ca98b85f1942631284692c75b"
-dependencies = [
- "parity-scale-codec",
- "scale-info",
- "serde",
- "smallvec",
- "sp-arithmetic 16.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-core 21.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-debug-derive 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "sp-std 8.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "sp-weights"
-version = "20.0.0"
 source = "git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask#73c2bca9cdb17f1fdc2afd7aed826d0c55b8640a"
 dependencies = [
  "parity-scale-codec",
  "scale-info",
  "serde",
  "smallvec",
- "sp-arithmetic 16.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-core 21.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
- "sp-debug-derive 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
+ "sp-arithmetic",
+ "sp-core",
+ "sp-debug-derive",
  "sp-std 8.0.0 (git+https://github.com/agryaznov/polkadot-sdk?branch=ag/polkamask)",
 ]
 
@@ -5733,8 +5216,6 @@ checksum = "734676eb262c623cec13c3155096e08d1f8f29adce39ba17948b18dad1e54142"
 [[package]]
 name = "subxt"
 version = "0.30.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0ba02ada83ba2640c46e200a1758cc83ce876a16326d2c52ca5db41b7d6645ce"
 dependencies = [
  "base58",
  "blake2",
@@ -5747,7 +5228,7 @@ dependencies = [
  "jsonrpsee 0.16.3",
  "parity-scale-codec",
  "primitive-types",
- "scale-bits 0.3.0",
+ "scale-bits",
  "scale-decode 0.7.0",
  "scale-encode 0.3.0",
  "scale-info",
@@ -5765,8 +5246,6 @@ dependencies = [
 [[package]]
 name = "subxt-codegen"
 version = "0.30.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3213eb04567e710aa253b94de74337c7b663eea52114805b8723129763282779"
 dependencies = [
  "frame-metadata 16.0.0",
  "heck",
@@ -5785,8 +5264,6 @@ dependencies = [
 [[package]]
 name = "subxt-lightclient"
 version = "0.30.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "439a235bedd0e460c110e5341d919ec3a27f9be3dd4c1c944daad8a9b54d396d"
 dependencies = [
  "futures",
  "futures-util",
@@ -5802,8 +5279,6 @@ dependencies = [
 [[package]]
 name = "subxt-macro"
 version = "0.30.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cfda460cc5f701785973382c589e9bb12c23bb8d825bfc3ac547b7c672aba1c0"
 dependencies = [
  "darling 0.20.3",
  "proc-macro-error",
@@ -5814,8 +5289,6 @@ dependencies = [
 [[package]]
 name = "subxt-metadata"
 version = "0.30.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0283bd02163913fbd0a5153d0b179533e48b239b953fa4e43baa27c73f18861c"
 dependencies = [
  "frame-metadata 16.0.0",
  "parity-scale-codec",
@@ -5827,12 +5300,11 @@ dependencies = [
 [[package]]
 name = "subxt-signer"
 version = "0.30.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8829de70ce3df90bfeccee1d80a29d554bc0219d7031ed67c11679e3ddc95b7d"
 dependencies = [
  "bip39",
  "hex",
  "hmac 0.12.1",
+ "libsecp256k1",
  "parity-scale-codec",
  "pbkdf2 0.12.2",
  "regex",

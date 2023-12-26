@@ -180,7 +180,7 @@ impl CallCommand {
             .map(|bv| bv.denominate_balance(&token_metadata))
             .transpose()?;
         let call_request = CallRequest {
-            origin: account_id(signer) as contract_transcode::AccountId20,
+            origin: account_id(signer),
             dest: self.contract.clone(),
             value: self.value.denominate_balance(&token_metadata)?,
             gas_limit: None,
@@ -225,6 +225,8 @@ impl CallCommand {
             data,
         );
 
+        // use subxt::tx::Signer;
+        // let addr20: contract_transcode::AccountId20 = signer.account_id();
         let result = submit_extrinsic(client, &call, signer).await?;
 
         let display_events =

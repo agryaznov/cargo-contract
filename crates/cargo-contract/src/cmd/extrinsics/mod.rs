@@ -48,6 +48,7 @@ use std::{
 
 use crate::{
     cmd::{
+    AccountId20,
         Balance,
         Client,
         PolkamaskConfig,
@@ -61,7 +62,6 @@ use contract_build::{
     Verbosity,
     VerbosityFlags,
 };
-use contract_transcode::AccountId20;
 
 use pallet_contracts_primitives::ContractResult;
 use scale::{

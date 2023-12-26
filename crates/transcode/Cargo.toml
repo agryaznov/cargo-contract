@@ -39,9 +39,9 @@ thiserror = "1.0.40"
 
 [dev-dependencies]
 assert_matches = "1.5.0"
-ink = "4.2.0"
-sp-core = "21.0.0"
-sp-keyring = "24.0.0"
+ink = { git = "https://github.com/agryaznov/ink", branch = "polkamask" }
+sp-core = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
+sp-keyring = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
 
 [features]
 # This `std` feature is required for testing using an inline contract's metadata, because `ink!` annotates the metadata

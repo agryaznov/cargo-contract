@@ -29,6 +29,7 @@ use super::{
 };
 use crate::{
     cmd::{
+        AccountId20,
         extrinsics::{
             display_contract_exec_result_debug,
             display_dry_run_result_warning,
@@ -319,7 +320,7 @@ impl Exec {
         &self,
         result: &ExtrinsicEvents<PolkamaskConfig>,
         code_hash: Option<CodeHash>,
-        contract_address: contract_transcode::AccountId20,
+        contract_address: AccountId20,
         token_metadata: &TokenMetadata,
     ) -> Result<(), ErrorVariant> {
         let events = DisplayEvents::from_events(

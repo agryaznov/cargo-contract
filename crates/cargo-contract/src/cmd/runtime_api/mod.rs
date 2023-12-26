@@ -24,7 +24,7 @@
     ),
     substitute_type(
         path = "sp_weights::weight_v2::Weight",
-        with = "::sp_weights::Weight"
+        with = "::subxt::utils::Static<::sp_weights::Weight>"
     )
 )]
 pub mod api {}

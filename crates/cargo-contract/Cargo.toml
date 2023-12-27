@@ -46,6 +46,10 @@ subxt-signer = { path = "/usr/dev/polka/subxt/signer", features = ["subxt", "ecd
 hex = "0.4.3"
 jsonrpsee = { version = "0.18.2", features = ["ws-client"] }
 
+# polkamask
+# TODO git repo dep
+pmp-account = { path = "/usr/dev/polka/polkamask/primitives/account" }
+
 [build-dependencies]
 anyhow = "1.0.71"
 substrate-build-script-utils = "5.0.0"

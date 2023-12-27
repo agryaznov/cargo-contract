@@ -29,7 +29,6 @@ use super::{
 };
 use crate::{
     cmd::{
-        AccountId20,
         extrinsics::{
             display_contract_exec_result_debug,
             display_dry_run_result_warning,
@@ -38,6 +37,7 @@ use crate::{
             TokenMetadata,
         },
         runtime_api::api,
+        AccountId20,
         Balance,
         CodeHash,
         PolkamaskConfig,

@@ -224,9 +224,8 @@ impl CallCommand {
             self.extrinsic_opts.storage_deposit_limit(&token_metadata)?,
             data,
         );
+        tracing::debug!("Call request: {:?}", &call);
 
-        // use subxt::tx::Signer;
-        // let addr20: contract_transcode::AccountId20 = signer.account_id();
         let result = submit_extrinsic(client, &call, signer).await?;
 
         let display_events =

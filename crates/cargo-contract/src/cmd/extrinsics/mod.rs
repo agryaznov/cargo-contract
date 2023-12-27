@@ -48,7 +48,7 @@ use std::{
 
 use crate::{
     cmd::{
-    AccountId20,
+        AccountId20,
         Balance,
         Client,
         PolkamaskConfig,

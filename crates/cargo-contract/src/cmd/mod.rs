@@ -54,26 +54,59 @@ use subxt::{
 };
 
 pub use subxt::utils::AccountId20;
+use pmp_account::EthereumSignature;
 
+#[derive(Debug)]
 pub enum PolkamaskConfig {}
 
 impl Config for PolkamaskConfig {
     type Hash = H256;
     type AccountId = AccountId20;
     type Address = MultiAddress<Self::AccountId, u32>;
-    type Signature = MultiSignature;
+    type Signature = EthereumSignature;
     type Hasher = BlakeTwo256;
     type Header = SubstrateHeader<u32, BlakeTwo256>;
-    type ExtrinsicParams = SubstrateExtrinsicParams<Self>;
+    type ExtrinsicParams = PolkamaskExtrinsicParams<Self>;
 }
 
 type Client = OnlineClient<PolkamaskConfig>;
 type Balance = u128;
 type CodeHash = <PolkamaskConfig as Config>::Hash;
 
-// impl From<subxt_signer::ecdsa::PublicKey> for subxt::utils::MultiAddress<contract_transcode::AccountId20, u32> {
-//     fn from(value: subxt_signer::ecdsa::PublicKey) -> Self {
-//         let val: contract_transcode::AccountId20 = value.into();
-//         val.into()
-//     }
-// }
+// TODO put into separate module\crate or remove
+use std::marker::PhantomData;
+use subxt::config::extrinsic_params::ExtrinsicParams;
+use scale::Encode;
+/// We add this dummy type in order to make the cargo-contract tool compatible with our
+/// simplified development node which has no added signed extentions.
+/// This is temporary means for the ease of development.
+#[derive(Debug)]
+pub struct PolkamaskExtrinsicParams<T> {
+    spec_version: u32,
+    transaction_version: u32,
+    phantom: PhantomData<T>,
+}
+
+impl<T: Config + std::fmt::Debug> ExtrinsicParams<T::Hash>
+    for PolkamaskExtrinsicParams<T>
+{
+    type OtherParams = ();
+
+    fn new(
+        spec_version: u32,
+        transaction_version: u32,
+        _nonce: u64,
+        _genesis_hash: T::Hash,
+        _other_params: Self::OtherParams,
+    ) -> Self {
+        PolkamaskExtrinsicParams {
+            spec_version,
+            transaction_version,
+            phantom: PhantomData::<T>,
+        }
+    }
+
+    fn encode_extra_to(&self, _v: &mut Vec<u8>) {}
+
+    fn encode_additional_to(&self, _v: &mut Vec<u8>) {}
+}

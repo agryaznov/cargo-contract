@@ -48,6 +48,7 @@ use subxt::{
             SubstrateHeader,
             H256,
         },
+        polkadot::PolkadotExtrinsicParams,
         Config,
     },
     OnlineClient,
@@ -66,7 +67,7 @@ impl Config for PolkamaskConfig {
     type Signature = EthereumSignature;
     type Hasher = BlakeTwo256;
     type Header = SubstrateHeader<u32, BlakeTwo256>;
-    type ExtrinsicParams = PolkamaskExtrinsicParams<Self>;
+    type ExtrinsicParams = PolkadotExtrinsicParams<Self>;//PolkamaskExtrinsicParams<Self>;
 }
 
 type Client = OnlineClient<PolkamaskConfig>;
@@ -74,39 +75,39 @@ type Balance = u128;
 type CodeHash = <PolkamaskConfig as Config>::Hash;
 
 // TODO put into separate module\crate or remove
-use std::marker::PhantomData;
-use subxt::config::extrinsic_params::ExtrinsicParams;
-use scale::Encode;
-/// We add this dummy type in order to make the cargo-contract tool compatible with our
-/// simplified development node which has no added signed extentions.
-/// This is temporary means for the ease of development.
-#[derive(Debug)]
-pub struct PolkamaskExtrinsicParams<T> {
-    spec_version: u32,
-    transaction_version: u32,
-    phantom: PhantomData<T>,
-}
+// use std::marker::PhantomData;
+// use subxt::config::extrinsic_params::ExtrinsicParams;
+// use scale::Encode;
+// We add this dummy type in order to make the cargo-contract tool compatible with our
+// simplified development node which has no added signed extentions.
+// This is temporary means for the ease of development.
+// #[derive(Debug)]
+// pub struct PolkamaskExtrinsicParams<T> {
+//     spec_version: u32,
+//     transaction_version: u32,
+//     phantom: PhantomData<T>,
+// }
 
-impl<T: Config + std::fmt::Debug> ExtrinsicParams<T::Hash>
-    for PolkamaskExtrinsicParams<T>
-{
-    type OtherParams = ();
+// impl<T: Config + std::fmt::Debug> ExtrinsicParams<T::Hash>
+//     for PolkamaskExtrinsicParams<T>
+// {
+//     type OtherParams = ();
 
-    fn new(
-        spec_version: u32,
-        transaction_version: u32,
-        _nonce: u64,
-        _genesis_hash: T::Hash,
-        _other_params: Self::OtherParams,
-    ) -> Self {
-        PolkamaskExtrinsicParams {
-            spec_version,
-            transaction_version,
-            phantom: PhantomData::<T>,
-        }
-    }
+//     fn new(
+//         spec_version: u32,
+//         transaction_version: u32,
+//         _nonce: u64,
+//         _genesis_hash: T::Hash,
+//         _other_params: Self::OtherParams,
+//     ) -> Self {
+//         PolkamaskExtrinsicParams {
+//             spec_version,
+//             transaction_version,
+//             phantom: PhantomData::<T>,
+//         }
+//     }
 
-    fn encode_extra_to(&self, _v: &mut Vec<u8>) {}
+//     fn encode_extra_to(&self, _v: &mut Vec<u8>) {}
 
-    fn encode_additional_to(&self, _v: &mut Vec<u8>) {}
-}
+//     fn encode_additional_to(&self, _v: &mut Vec<u8>) {}
+// }

@@ -997,7 +997,7 @@ dependencies = [
 
 [[package]]
 name = "cargo-contract"
-version = "3.2.0"
+version = "3.2.0-polkamask"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -1270,7 +1270,7 @@ dependencies = [
 
 [[package]]
 name = "contract-metadata"
-version = "3.2.0"
+version = "3.2.0-polkamask"
 dependencies = [
  "anyhow",
  "impl-serde",
@@ -1283,7 +1283,7 @@ dependencies = [
 
 [[package]]
 name = "contract-transcode"
-version = "3.2.0"
+version = "3.2.0-polkamask"
 dependencies = [
  "anyhow",
  "assert_matches",
@@ -5244,7 +5244,6 @@ dependencies = [
  "hex",
  "impl-serde",
  "jsonrpsee 0.16.3",
- "log",
  "parity-scale-codec",
  "primitive-types",
  "scale-bits",

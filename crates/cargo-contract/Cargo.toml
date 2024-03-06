@@ -46,7 +46,7 @@ subxt-signer = { git = "https://github.com/agryaznov/subxt", branch = "polkamask
 hex = "0.4.3"
 jsonrpsee = { version = "0.18.2", features = ["ws-client"] }
 
-# polkamask
+# ethink
 pmp-account = { git = "https://github.com/agryaznov/ethink" }
 
 [build-dependencies]

@@ -40,22 +40,20 @@ pub(crate) use self::extrinsics::{
 
 use subxt::{
     config::{
+        polkadot::PolkadotExtrinsicParams,
         substrate::{
             BlakeTwo256,
             MultiAddress,
-            MultiSignature,
-            SubstrateExtrinsicParams,
             SubstrateHeader,
             H256,
         },
-        polkadot::PolkadotExtrinsicParams,
         Config,
     },
     OnlineClient,
 };
 
-pub use subxt::utils::AccountId20;
 use pmp_account::EthereumSignature;
+pub use subxt::utils::AccountId20;
 
 #[derive(Debug)]
 pub enum PolkamaskConfig {}
@@ -67,7 +65,7 @@ impl Config for PolkamaskConfig {
     type Signature = EthereumSignature;
     type Hasher = BlakeTwo256;
     type Header = SubstrateHeader<u32, BlakeTwo256>;
-    type ExtrinsicParams = PolkadotExtrinsicParams<Self>;//PolkamaskExtrinsicParams<Self>;
+    type ExtrinsicParams = PolkadotExtrinsicParams<Self>; // PolkamaskExtrinsicParams<Self>;
 }
 
 type Client = OnlineClient<PolkamaskConfig>;

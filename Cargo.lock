@@ -3554,6 +3554,7 @@ checksum = "14e6ab3f592e6fb464fc9712d8d6e6912de6473954635fd76a589d832cffcbb0"
 [[package]]
 name = "pmp-account"
 version = "0.1.0"
+source = "git+https://github.com/agryaznov/ethink#12524088c737f4f68d133bed4e760dc353e18041"
 dependencies = [
  "hex",
  "impl-serde",
@@ -5234,6 +5235,7 @@ checksum = "734676eb262c623cec13c3155096e08d1f8f29adce39ba17948b18dad1e54142"
 [[package]]
 name = "subxt"
 version = "0.30.1"
+source = "git+https://github.com/agryaznov/subxt?branch=polkamask#be93633cf348802b1dcf4d3f233c31c85dc17be1"
 dependencies = [
  "base58",
  "blake2",
@@ -5264,6 +5266,7 @@ dependencies = [
 [[package]]
 name = "subxt-codegen"
 version = "0.30.1"
+source = "git+https://github.com/agryaznov/subxt?branch=polkamask#be93633cf348802b1dcf4d3f233c31c85dc17be1"
 dependencies = [
  "frame-metadata 16.0.0",
  "heck",
@@ -5282,6 +5285,7 @@ dependencies = [
 [[package]]
 name = "subxt-lightclient"
 version = "0.30.1"
+source = "git+https://github.com/agryaznov/subxt?branch=polkamask#be93633cf348802b1dcf4d3f233c31c85dc17be1"
 dependencies = [
  "futures",
  "futures-util",
@@ -5297,6 +5301,7 @@ dependencies = [
 [[package]]
 name = "subxt-macro"
 version = "0.30.1"
+source = "git+https://github.com/agryaznov/subxt?branch=polkamask#be93633cf348802b1dcf4d3f233c31c85dc17be1"
 dependencies = [
  "darling 0.20.3",
  "proc-macro-error",
@@ -5307,6 +5312,7 @@ dependencies = [
 [[package]]
 name = "subxt-metadata"
 version = "0.30.1"
+source = "git+https://github.com/agryaznov/subxt?branch=polkamask#be93633cf348802b1dcf4d3f233c31c85dc17be1"
 dependencies = [
  "frame-metadata 16.0.0",
  "parity-scale-codec",
@@ -5318,6 +5324,7 @@ dependencies = [
 [[package]]
 name = "subxt-signer"
 version = "0.30.1"
+source = "git+https://github.com/agryaznov/subxt?branch=polkamask#be93633cf348802b1dcf4d3f233c31c85dc17be1"
 dependencies = [
  "bip39",
  "hex",

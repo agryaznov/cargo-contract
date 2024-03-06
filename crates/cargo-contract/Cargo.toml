@@ -41,14 +41,13 @@ sp-runtime = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/p
 sp-weights = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
 pallet-contracts-primitives = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
 scale-info = "2.7.0"
-subxt = { path = "/usr/dev/polka/subxt/subxt" }
-subxt-signer = { path = "/usr/dev/polka/subxt/signer", features = ["subxt", "ecdsa"] }
+subxt = { git = "https://github.com/agryaznov/subxt", branch = "polkamask" }
+subxt-signer = { git = "https://github.com/agryaznov/subxt", branch = "polkamask", features = ["subxt", "ecdsa"] }
 hex = "0.4.3"
 jsonrpsee = { version = "0.18.2", features = ["ws-client"] }
 
 # polkamask
-# TODO git repo dep
-pmp-account = { path = "/usr/dev/polka/polkamask/primitives/account" }
+pmp-account = { git = "https://github.com/agryaznov/ethink" }
 
 [build-dependencies]
 anyhow = "1.0.71"

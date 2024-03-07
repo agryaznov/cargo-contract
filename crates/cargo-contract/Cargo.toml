@@ -47,7 +47,7 @@ hex = "0.4.3"
 jsonrpsee = { version = "0.18.2", features = ["ws-client"] }
 
 # ethink
-pmp-account = { git = "https://github.com/agryaznov/ethink" }
+ep_account = { git = "https://github.com/agryaznov/ethink" }
 
 [build-dependencies]
 anyhow = "1.0.71"

@@ -1,6 +1,6 @@
 [package]
 name = "contract-transcode"
-version = "3.2.0-polkamask"
+version = "3.2.0-ethink"
 authors = ["Parity Technologies <admin@parity.io>"]
 edition = "2021"
 
@@ -20,12 +20,12 @@ path = "src/lib.rs"
 anyhow = "1.0.71"
 base58 = { version = "0.2.0" }
 blake2 = { version = "0.10.4", default-features = false }
-contract-metadata = { version = "3.2.0-polkamask", path = "../metadata" }
+contract-metadata = { version = "3.2.0-ethink", path = "../metadata" }
 escape8259 = "0.5.2"
 hex = "0.4.3"
 indexmap = "1.9.3"
-ink_env = { git = "https://github.com/agryaznov/ink", branch = "polkamask" }
-ink_metadata = { git = "https://github.com/agryaznov/ink", branch = "polkamask" }
+ink_env = { git = "https://github.com/agryaznov/ink", branch = "ethink" }
+ink_metadata = { git = "https://github.com/agryaznov/ink", branch = "ethink" }
 itertools = "0.10.5"
 tracing = "0.1.37"
 nom = "7.1.3"
@@ -39,9 +39,9 @@ thiserror = "1.0.40"
 
 [dev-dependencies]
 assert_matches = "1.5.0"
-ink = { git = "https://github.com/agryaznov/ink", branch = "polkamask" }
-sp-core = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
-sp-keyring = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
+ink = { git = "https://github.com/agryaznov/ink", branch = "ethink" }
+sp-core = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ethink" }
+sp-keyring = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ethink" }
 
 [features]
 # This `std` feature is required for testing using an inline contract's metadata, because `ink!` annotates the metadata

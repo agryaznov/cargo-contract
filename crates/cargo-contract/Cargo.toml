@@ -1,6 +1,6 @@
 [package]
 name = "cargo-contract"
-version = "3.2.0-polkamask"
+version = "3.2.0-ethink"
 authors = ["Parity Technologies <admin@parity.io>"]
 build = "build.rs"
 edition = "2021"
@@ -18,9 +18,9 @@ include = [
 ]
 
 [dependencies]
-contract-build = { version = "3.2.0-polkamask", path = "../build" }
-contract-metadata = { version = "3.2.0-polkamask", path = "../metadata" }
-contract-transcode = { version = "3.2.0-polkamask", path = "../transcode" }
+contract-build = { version = "3.2.0-ethink", path = "../build" }
+contract-metadata = { version = "3.2.0-ethink", path = "../metadata" }
+contract-transcode = { version = "3.2.0-ethink", path = "../transcode" }
 
 anyhow = "1.0.71"
 clap = { version = "4.2.7", features = ["derive", "env"] }
@@ -36,18 +36,18 @@ rust_decimal = "1.29"
 
 # dependencies for extrinsics (deploying and calling a contract)
 async-std = { version = "1.12.0", features = ["attributes", "tokio1"] }
-sp-core = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
-sp-runtime = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
-sp-weights = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
-pallet-contracts-primitives = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ag/polkamask" }
+sp-core = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ethink" }
+sp-runtime = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ethink" }
+sp-weights = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ethink" }
+pallet-contracts-primitives = { git = "https://github.com/agryaznov/polkadot-sdk", branch = "ethink" }
 scale-info = "2.7.0"
-subxt = { git = "https://github.com/agryaznov/subxt", branch = "polkamask" }
-subxt-signer = { git = "https://github.com/agryaznov/subxt", branch = "polkamask", features = ["subxt", "ecdsa"] }
+subxt = { git = "https://github.com/agryaznov/subxt", branch = "ethink" }
+subxt-signer = { git = "https://github.com/agryaznov/subxt", branch = "ethink", features = ["subxt", "ecdsa"] }
 hex = "0.4.3"
 jsonrpsee = { version = "0.18.2", features = ["ws-client"] }
 
 # ethink
-ep_account = { git = "https://github.com/agryaznov/ethink" }
+ep-crypto = { git = "https://github.com/agryaznov/ethink", branch = "master"}
 
 [build-dependencies]
 anyhow = "1.0.71"

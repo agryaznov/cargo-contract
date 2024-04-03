@@ -17,8 +17,9 @@
 #![allow(clippy::too_many_arguments)]
 
 #[subxt::subxt(
-    runtime_metadata_path = "src/cmd/runtime_api/polkamask_runtime.scale",
-    substitute_type(path = "ep_account::AccountId20", with = "crate::cmd::AccountId20"),
+    runtime_metadata_path = "src/cmd/runtime_api/ethink_runtime.scale",
+    substitute_type(path = "ep_crypto::account::AccountId20", with = "crate::cmd::AccountId20"),
+    substitute_type(path = "ep_crypto::signing::EthereumSignature", with = "crate::cmd::EthereumSignature"),
     substitute_type(
         path = "sp_weights::weight_v2::Weight",
         with = "::subxt::utils::Static<::sp_weights::Weight>"

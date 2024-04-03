@@ -52,7 +52,7 @@ use subxt::{
     OnlineClient,
 };
 
-use ep_account::EthereumSignature;
+use ep_crypto::EthereumSignature;
 pub use subxt::utils::AccountId20;
 
 #[derive(Debug)]

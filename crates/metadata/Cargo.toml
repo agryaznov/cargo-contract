@@ -1,6 +1,6 @@
 [package]
 name = "contract-metadata"
-version = "4.1.1"
+version = "4.1.1-ethink"
 authors = ["Use Ink <ink@r0gue.io>"]
 edition = "2021"
 

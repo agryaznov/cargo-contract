@@ -16,7 +16,7 @@
 
 use std::str::FromStr;
 
-use contract_transcode::AccountId32;
+use contract_transcode::AccountId20;
 use subxt::{
     backend::rpc::{
         RawValue,
@@ -157,7 +157,7 @@ fn custom_ss58_parse(s: &mut &str) -> Option<Result<Value<()>, ParseError>> {
     let end_idx = s
         .find(|c: char| !c.is_ascii_alphanumeric())
         .unwrap_or(s.len());
-    let account = AccountId32::from_str(&s[..end_idx]).ok()?;
+    let account = AccountId20::from_str(&s[..end_idx]).ok()?;
 
     *s = &s[end_idx..];
     Some(Ok(Value::string(format!("0x{}", hex::encode(account.0)))))

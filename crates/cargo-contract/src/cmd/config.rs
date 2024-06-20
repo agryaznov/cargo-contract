@@ -17,6 +17,7 @@
 use ink_env::{
     DefaultEnvironment,
     Environment,
+    NoChainExtension,
 };
 use std::{
     fmt::Debug,
@@ -24,6 +25,12 @@ use std::{
 };
 use subxt::{
     config::{
+        substrate::{
+            BlakeTwo256,
+            MultiAddress,
+            SubstrateHeader,
+            H256,
+        },
         PolkadotExtrinsicParams,
         SubstrateExtrinsicParams,
     },
@@ -35,40 +42,42 @@ use subxt::{
         PairSigner,
         Signer as SignerT,
     },
+    utils::AccountId20,
     Config,
     PolkadotConfig,
     SubstrateConfig,
 };
+
+use ep_eth::EthereumSignature;
 
 /// Configuration for signer
 pub trait SignerConfig<C: Config + Environment> {
     type Signer: SignerT<C> + FromStr + Clone;
 }
 
-/// A runtime configuration for the ecdsa test chain.
-/// This thing is not meant to be instantiated; it is just a collection of types.
+/// A runtime configuration for a Ethink chain.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Ecdsachain {}
 
 impl Config for Ecdsachain {
-    type Hash = <SubstrateConfig as Config>::Hash;
-    type AccountId = <SubstrateConfig as Config>::AccountId;
-    type Address = <SubstrateConfig as Config>::Address;
-    type Signature = <SubstrateConfig as Config>::Signature;
-    type Hasher = <SubstrateConfig as Config>::Hasher;
-    type Header = <SubstrateConfig as Config>::Header;
-    type ExtrinsicParams = SubstrateExtrinsicParams<Self>;
-    type AssetId = <SubstrateConfig as Config>::AssetId;
+    type Hash = H256;
+    type AccountId = AccountId20;
+    type Address = MultiAddress<Self::AccountId, u32>;
+    type Signature = EthereumSignature;
+    type Hasher = BlakeTwo256;
+    type Header = SubstrateHeader<u32, BlakeTwo256>;
+    type ExtrinsicParams = PolkadotExtrinsicParams<Self>;
+    type AssetId = u32;
 }
 
 impl Environment for Ecdsachain {
-    const MAX_EVENT_TOPICS: usize = <DefaultEnvironment as Environment>::MAX_EVENT_TOPICS;
-    type AccountId = <DefaultEnvironment as Environment>::AccountId;
-    type Balance = <DefaultEnvironment as Environment>::Balance;
-    type Hash = <DefaultEnvironment as Environment>::Hash;
-    type Timestamp = <DefaultEnvironment as Environment>::Timestamp;
-    type BlockNumber = <DefaultEnvironment as Environment>::BlockNumber;
-    type ChainExtension = <DefaultEnvironment as Environment>::ChainExtension;
+    const MAX_EVENT_TOPICS: usize = 4;
+    type AccountId = AccountId20;
+    type Balance = u128;
+    type Hash = H256;
+    type Timestamp = u64;
+    type BlockNumber = u32;
+    type ChainExtension = NoChainExtension;
 }
 
 impl SignerConfig<Self> for Ecdsachain
@@ -174,15 +183,12 @@ where
 }
 
 /// Struct representing the implementation of the ecdsa signer
+// TODO this needs to be changed not to use PairSinger, as it uses blake256 intstead of
+// keccak!
 #[derive(Clone)]
 pub struct SignerEcdsa<C: Config>(pub PairSigner<C, sp_core::ecdsa::Pair>);
 
-impl<C: Config> FromStr for SignerEcdsa<C>
-where
-    // Requirements of the `PairSigner where:
-    // T::AccountId: From<SpAccountId32>`
-    <C as Config>::AccountId: From<sp_core::crypto::AccountId32>,
-{
+impl<C: Config> FromStr for SignerEcdsa<C> {
     type Err = anyhow::Error;
 
     /// Attempts to parse the Signer suri string

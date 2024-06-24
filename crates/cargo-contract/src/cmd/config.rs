@@ -60,24 +60,24 @@ pub trait SignerConfig<C: Config + Environment> {
 pub enum Ecdsachain {}
 
 impl Config for Ecdsachain {
-    type Hash = H256;
-    type AccountId = AccountId20;
-    type Address = MultiAddress<Self::AccountId, u32>;
-    type Signature = EthereumSignature;
-    type Hasher = BlakeTwo256;
-    type Header = SubstrateHeader<u32, BlakeTwo256>;
-    type ExtrinsicParams = PolkadotExtrinsicParams<Self>;
-    type AssetId = u32;
+    type Hash = <SubstrateConfig as Config>::Hash;
+    type AccountId = <SubstrateConfig as Config>::AccountId;
+    type Address = <SubstrateConfig as Config>::Address;
+    type Signature = <SubstrateConfig as Config>::Signature;
+    type Hasher = <SubstrateConfig as Config>::Hasher;
+    type Header = <SubstrateConfig as Config>::Header;
+    type ExtrinsicParams = SubstrateExtrinsicParams<Self>;
+    type AssetId = <SubstrateConfig as Config>::AssetId;
 }
 
 impl Environment for Ecdsachain {
-    const MAX_EVENT_TOPICS: usize = 4;
-    type AccountId = AccountId20;
-    type Balance = u128;
-    type Hash = H256;
-    type Timestamp = u64;
-    type BlockNumber = u32;
-    type ChainExtension = NoChainExtension;
+    const MAX_EVENT_TOPICS: usize = <DefaultEnvironment as Environment>::MAX_EVENT_TOPICS;
+    type AccountId = <DefaultEnvironment as Environment>::AccountId;
+    type Balance = <DefaultEnvironment as Environment>::Balance;
+    type Hash = <DefaultEnvironment as Environment>::Hash;
+    type Timestamp = <DefaultEnvironment as Environment>::Timestamp;
+    type BlockNumber = <DefaultEnvironment as Environment>::BlockNumber;
+    type ChainExtension = <DefaultEnvironment as Environment>::ChainExtension;
 }
 
 impl SignerConfig<Self> for Ecdsachain

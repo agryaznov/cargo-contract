@@ -1050,8 +1050,8 @@ dependencies = [
  "current_platform",
  "ep-eth 0.2.0 (git+https://github.com/agryaznov/ethink?rev=3bf6afc)",
  "hex",
- "ink_env 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
- "ink_metadata 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
+ "ink_env 5.0.0",
+ "ink_metadata 5.0.0",
  "jsonschema",
  "predicates",
  "primitive-types",
@@ -1063,7 +1063,7 @@ dependencies = [
  "sp-core",
  "sp-weights 27.0.0",
  "substrate-build-script-utils",
- "subxt 0.35.3",
+ "subxt",
  "tempfile",
  "tokio",
  "tracing",
@@ -1379,9 +1379,9 @@ dependencies = [
  "derivative",
  "futures",
  "hex",
- "ink",
- "ink_env 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "ink_metadata 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_env 5.0.0",
+ "ink_metadata 5.0.0",
  "itertools 0.12.1",
  "pallet-contracts-uapi 5.0.0",
  "parity-scale-codec",
@@ -1394,7 +1394,7 @@ dependencies = [
  "sp-core",
  "sp-runtime",
  "sp-weights 27.0.0",
- "subxt 0.35.3",
+ "subxt",
  "subxt-signer",
  "tempfile",
  "tokio",
@@ -1428,9 +1428,9 @@ dependencies = [
  "escape8259",
  "hex",
  "indexmap 2.2.6",
- "ink",
- "ink_env 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "ink_metadata 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink 5.0.0",
+ "ink_env 5.0.0",
+ "ink_metadata 5.0.0",
  "itertools 0.12.1",
  "nom",
  "nom-supreme",
@@ -2938,19 +2938,43 @@ checksum = "8e04e2fd2b8188ea827b32ef11de88377086d690286ab35747ef7f9bf3ccb590"
 [[package]]
 name = "ink"
 version = "5.0.0"
+dependencies = [
+ "derive_more",
+ "ink_env 5.0.0",
+ "ink_macro 5.0.0",
+ "ink_metadata 5.0.0",
+ "ink_prelude 5.0.0",
+ "ink_primitives 5.0.0",
+ "ink_storage 5.0.0",
+ "pallet-contracts-uapi 9.0.0",
+ "parity-scale-codec",
+ "scale-info",
+ "staging-xcm",
+]
+
+[[package]]
+name = "ink"
+version = "5.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3d4a862aedbfda93175ddf75c9aaa2ae4c4b39ee5cee06c16d50bccce05bf5c7"
 dependencies = [
  "derive_more",
  "ink_env 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "ink_macro",
+ "ink_macro 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ink_metadata 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ink_prelude 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ink_primitives 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "ink_storage",
+ "ink_storage 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "pallet-contracts-uapi-next",
  "parity-scale-codec",
  "scale-info",
+]
+
+[[package]]
+name = "ink_allocator"
+version = "5.0.0"
+dependencies = [
+ "cfg-if",
 ]
 
 [[package]]
@@ -2963,11 +2987,23 @@ dependencies = [
 ]
 
 [[package]]
-name = "ink_allocator"
+name = "ink_codegen"
 version = "5.0.0"
-source = "git+https://github.com/use-ink/ink?rev=0cd2b89#0cd2b897586194afca08714216f1ed876d05754d"
 dependencies = [
- "cfg-if",
+ "blake2",
+ "derive_more",
+ "either",
+ "heck 0.5.0",
+ "impl-serde",
+ "ink_ir 5.0.0",
+ "ink_primitives 5.0.0",
+ "itertools 0.12.1",
+ "parity-scale-codec",
+ "proc-macro2",
+ "quote",
+ "serde",
+ "serde_json",
+ "syn 2.0.68",
 ]
 
 [[package]]
@@ -2981,7 +3017,7 @@ dependencies = [
  "either",
  "heck 0.4.1",
  "impl-serde",
- "ink_ir",
+ "ink_ir 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ink_primitives 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "itertools 0.12.1",
  "parity-scale-codec",
@@ -2990,6 +3026,20 @@ dependencies = [
  "serde",
  "serde_json",
  "syn 2.0.68",
+]
+
+[[package]]
+name = "ink_engine"
+version = "5.0.0"
+dependencies = [
+ "blake2",
+ "derive_more",
+ "ink_primitives 5.0.0",
+ "pallet-contracts-uapi 9.0.0",
+ "parity-scale-codec",
+ "secp256k1",
+ "sha2 0.10.8",
+ "sha3",
 ]
 
 [[package]]
@@ -3009,18 +3059,32 @@ dependencies = [
 ]
 
 [[package]]
-name = "ink_engine"
+name = "ink_env"
 version = "5.0.0"
-source = "git+https://github.com/use-ink/ink?rev=0cd2b89#0cd2b897586194afca08714216f1ed876d05754d"
 dependencies = [
  "blake2",
+ "cfg-if",
+ "const_env",
  "derive_more",
- "ink_primitives 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
+ "ink_allocator 5.0.0",
+ "ink_engine 5.0.0",
+ "ink_prelude 5.0.0",
+ "ink_primitives 5.0.0",
+ "ink_storage_traits 5.0.0",
+ "num-traits",
  "pallet-contracts-uapi 9.0.0",
  "parity-scale-codec",
+ "paste",
+ "rlibc",
+ "scale-decode 0.11.1",
+ "scale-encode 0.6.0",
+ "scale-info",
+ "schnorrkel",
  "secp256k1",
  "sha2 0.10.8",
  "sha3",
+ "staging-xcm",
+ "static_assertions",
 ]
 
 [[package]]
@@ -3054,33 +3118,17 @@ dependencies = [
 ]
 
 [[package]]
-name = "ink_env"
+name = "ink_ir"
 version = "5.0.0"
-source = "git+https://github.com/use-ink/ink?rev=0cd2b89#0cd2b897586194afca08714216f1ed876d05754d"
 dependencies = [
  "blake2",
- "cfg-if",
- "const_env",
- "derive_more",
- "ink_allocator 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
- "ink_engine 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
- "ink_prelude 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
- "ink_primitives 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
- "ink_storage_traits 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
- "num-traits",
- "pallet-contracts-uapi 9.0.0",
- "parity-scale-codec",
- "paste",
- "rlibc",
- "scale-decode 0.11.1",
- "scale-encode 0.6.0",
- "scale-info",
- "schnorrkel",
- "secp256k1",
- "sha2 0.10.8",
- "sha3",
- "staging-xcm",
- "static_assertions",
+ "either",
+ "impl-serde",
+ "ink_prelude 5.0.0",
+ "itertools 0.12.1",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.68",
 ]
 
 [[package]]
@@ -3102,17 +3150,46 @@ dependencies = [
 [[package]]
 name = "ink_macro"
 version = "5.0.0"
+dependencies = [
+ "ink_codegen 5.0.0",
+ "ink_ir 5.0.0",
+ "ink_primitives 5.0.0",
+ "parity-scale-codec",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.68",
+ "synstructure",
+]
+
+[[package]]
+name = "ink_macro"
+version = "5.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "aee1a546f37eae3b3cd223832d31702033c5369dcfa3405899587c110a7908d3"
 dependencies = [
- "ink_codegen",
- "ink_ir",
+ "ink_codegen 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_ir 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ink_primitives 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "parity-scale-codec",
  "proc-macro2",
  "quote",
  "syn 2.0.68",
  "synstructure",
+]
+
+[[package]]
+name = "ink_metadata"
+version = "5.0.0"
+dependencies = [
+ "derive_more",
+ "impl-serde",
+ "ink_prelude 5.0.0",
+ "ink_primitives 5.0.0",
+ "linkme",
+ "parity-scale-codec",
+ "scale-info",
+ "schemars",
+ "serde",
 ]
 
 [[package]]
@@ -3133,19 +3210,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "ink_metadata"
+name = "ink_prelude"
 version = "5.0.0"
-source = "git+https://github.com/use-ink/ink?rev=0cd2b89#0cd2b897586194afca08714216f1ed876d05754d"
 dependencies = [
- "derive_more",
- "impl-serde",
- "ink_prelude 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
- "ink_primitives 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
- "linkme",
- "parity-scale-codec",
- "scale-info",
- "schemars",
- "serde",
+ "cfg-if",
 ]
 
 [[package]]
@@ -3158,11 +3226,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "ink_prelude"
+name = "ink_primitives"
 version = "5.0.0"
-source = "git+https://github.com/use-ink/ink?rev=0cd2b89#0cd2b897586194afca08714216f1ed876d05754d"
 dependencies = [
- "cfg-if",
+ "derive_more",
+ "ink_prelude 5.0.0",
+ "parity-scale-codec",
+ "scale-decode 0.11.1",
+ "scale-encode 0.6.0",
+ "scale-info",
+ "xxhash-rust",
 ]
 
 [[package]]
@@ -3181,17 +3254,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "ink_primitives"
+name = "ink_storage"
 version = "5.0.0"
-source = "git+https://github.com/use-ink/ink?rev=0cd2b89#0cd2b897586194afca08714216f1ed876d05754d"
 dependencies = [
+ "array-init",
+ "cfg-if",
  "derive_more",
- "ink_prelude 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
+ "ink_env 5.0.0",
+ "ink_metadata 5.0.0",
+ "ink_prelude 5.0.0",
+ "ink_primitives 5.0.0",
+ "ink_storage_traits 5.0.0",
+ "pallet-contracts-uapi 9.0.0",
  "parity-scale-codec",
- "scale-decode 0.11.1",
- "scale-encode 0.6.0",
  "scale-info",
- "xxhash-rust",
 ]
 
 [[package]]
@@ -3216,12 +3292,10 @@ dependencies = [
 [[package]]
 name = "ink_storage_traits"
 version = "5.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "83ce49e3d2935fc1ec3e73117119712b187d3123339f6a31624e92f75fa2293d"
 dependencies = [
- "ink_metadata 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "ink_prelude 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "ink_primitives 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_metadata 5.0.0",
+ "ink_prelude 5.0.0",
+ "ink_primitives 5.0.0",
  "parity-scale-codec",
  "scale-info",
 ]
@@ -3229,11 +3303,12 @@ dependencies = [
 [[package]]
 name = "ink_storage_traits"
 version = "5.0.0"
-source = "git+https://github.com/use-ink/ink?rev=0cd2b89#0cd2b897586194afca08714216f1ed876d05754d"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "83ce49e3d2935fc1ec3e73117119712b187d3123339f6a31624e92f75fa2293d"
 dependencies = [
- "ink_metadata 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
- "ink_prelude 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
- "ink_primitives 5.0.0 (git+https://github.com/use-ink/ink?rev=0cd2b89)",
+ "ink_metadata 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_prelude 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ink_primitives 5.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "parity-scale-codec",
  "scale-info",
 ]
@@ -6186,44 +6261,9 @@ dependencies = [
  "sp-core",
  "sp-crypto-hashing",
  "sp-runtime",
- "subxt-lightclient 0.35.3",
- "subxt-macro 0.35.3",
- "subxt-metadata 0.35.3",
- "thiserror",
- "tokio-util",
- "tracing",
- "url",
-]
-
-[[package]]
-name = "subxt"
-version = "0.35.3"
-source = "git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink#d9039cb5a1f59edbe7f3acfa2213b67834eac220"
-dependencies = [
- "async-trait",
- "base58",
- "blake2",
- "derivative",
- "either",
- "frame-metadata 16.0.0",
- "futures",
- "hex",
- "impl-serde",
- "instant",
- "jsonrpsee",
- "parity-scale-codec",
- "primitive-types",
- "scale-bits 0.5.0",
- "scale-decode 0.11.1",
- "scale-encode 0.6.0",
- "scale-info",
- "scale-value",
- "serde",
- "serde_json",
- "sp-crypto-hashing",
- "subxt-lightclient 0.35.3 (git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink)",
- "subxt-macro 0.35.3 (git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink)",
- "subxt-metadata 0.35.3 (git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink)",
+ "subxt-lightclient",
+ "subxt-macro",
+ "subxt-metadata",
  "thiserror",
  "tokio-util",
  "tracing",
@@ -6243,27 +6283,7 @@ dependencies = [
  "quote",
  "scale-info",
  "scale-typegen",
- "subxt-metadata 0.35.3",
- "syn 2.0.68",
- "thiserror",
- "tokio",
-]
-
-[[package]]
-name = "subxt-codegen"
-version = "0.35.3"
-source = "git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink#d9039cb5a1f59edbe7f3acfa2213b67834eac220"
-dependencies = [
- "frame-metadata 16.0.0",
- "heck 0.4.1",
- "hex",
- "jsonrpsee",
- "parity-scale-codec",
- "proc-macro2",
- "quote",
- "scale-info",
- "scale-typegen",
- "subxt-metadata 0.35.3 (git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink)",
+ "subxt-metadata",
  "syn 2.0.68",
  "thiserror",
  "tokio",
@@ -6285,22 +6305,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "subxt-lightclient"
-version = "0.35.3"
-source = "git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink#d9039cb5a1f59edbe7f3acfa2213b67834eac220"
-dependencies = [
- "futures",
- "futures-util",
- "serde",
- "serde_json",
- "smoldot-light",
- "thiserror",
- "tokio",
- "tokio-stream",
- "tracing",
-]
-
-[[package]]
 name = "subxt-macro"
 version = "0.35.3"
 dependencies = [
@@ -6309,40 +6313,13 @@ dependencies = [
  "proc-macro-error",
  "quote",
  "scale-typegen",
- "subxt-codegen 0.35.3",
- "syn 2.0.68",
-]
-
-[[package]]
-name = "subxt-macro"
-version = "0.35.3"
-source = "git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink#d9039cb5a1f59edbe7f3acfa2213b67834eac220"
-dependencies = [
- "darling 0.20.9",
- "parity-scale-codec",
- "proc-macro-error",
- "quote",
- "scale-typegen",
- "subxt-codegen 0.35.3 (git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink)",
+ "subxt-codegen",
  "syn 2.0.68",
 ]
 
 [[package]]
 name = "subxt-metadata"
 version = "0.35.3"
-dependencies = [
- "derive_more",
- "frame-metadata 16.0.0",
- "hashbrown 0.14.5",
- "parity-scale-codec",
- "scale-info",
- "sp-crypto-hashing",
-]
-
-[[package]]
-name = "subxt-metadata"
-version = "0.35.3"
-source = "git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink#d9039cb5a1f59edbe7f3acfa2213b67834eac220"
 dependencies = [
  "derive_more",
  "frame-metadata 16.0.0",
@@ -6355,7 +6332,6 @@ dependencies = [
 [[package]]
 name = "subxt-signer"
 version = "0.35.3"
-source = "git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink#d9039cb5a1f59edbe7f3acfa2213b67834eac220"
 dependencies = [
  "bip39",
  "cfg-if",
@@ -6372,7 +6348,7 @@ dependencies = [
  "secrecy",
  "sha2 0.10.8",
  "sp-crypto-hashing",
- "subxt 0.35.3 (git+https://github.com/agryaznov/subxt?branch=0.35.3-ethink)",
+ "subxt",
  "zeroize",
 ]
 

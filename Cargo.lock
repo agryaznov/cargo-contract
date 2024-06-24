@@ -1064,6 +1064,7 @@ dependencies = [
  "sp-weights 27.0.0",
  "substrate-build-script-utils",
  "subxt",
+ "subxt-signer",
  "tempfile",
  "tokio",
  "tracing",

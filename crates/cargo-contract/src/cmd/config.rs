@@ -66,8 +66,8 @@ pub enum Ecdsachain {}
 
 impl Config for Ecdsachain {
     type Hash = <SubstrateConfig as Config>::Hash;
-    type AccountId = <SubstrateConfig as Config>::AccountId;
-    type Address = <SubstrateConfig as Config>::Address;
+    type AccountId = AccountId20;
+    type Address = MultiAddress<Self::AccountId, u32>;
     type Signature = EthereumSignature;
     type Hasher = <SubstrateConfig as Config>::Hasher;
     type Header = <SubstrateConfig as Config>::Header;
@@ -116,7 +116,7 @@ impl Environment for Substrate {
 }
 
 impl SignerConfig<Self> for Substrate {
-    type Signer = SignerEcdsa;
+    type Signer = SignerSR25519<Self>;
 }
 
 /// A runtime configuration for the Polkadot based chain.
@@ -146,7 +146,7 @@ impl Environment for Polkadot {
 }
 
 impl SignerConfig<Self> for Polkadot {
-    type Signer = SignerEcdsa;
+    type Signer = SignerSR25519<Self>;
 }
 
 /// Struct representing the implementation of the sr25519 signer

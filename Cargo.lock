@@ -1048,7 +1048,7 @@ dependencies = [
  "contract-metadata",
  "contract-transcode",
  "current_platform",
- "ep-eth 0.2.0 (git+https://github.com/agryaznov/ethink?rev=3bf6afc)",
+ "ep-eth",
  "hex",
  "ink_env 5.0.0",
  "ink_metadata 5.0.0",
@@ -2025,31 +2025,8 @@ checksum = "e48c92028aaa870e83d51c64e5d4e0b6981b360c522198c23959f219a4e1b15b"
 [[package]]
 name = "ep-eth"
 version = "0.2.0"
-source = "git+https://github.com/agryaznov/ethink?rev=193f8b4#193f8b4bd684f9ef4253dfdff259a2f622172e78"
 dependencies = [
- "ep-mapping 0.2.0 (git+https://github.com/agryaznov/ethink?rev=193f8b4)",
- "ethereum",
- "ethereum-types",
- "hex",
- "impl-serde",
- "libsecp256k1",
- "log",
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-core",
- "sp-io",
- "sp-runtime",
- "sp-runtime-interface 24.0.0 (git+https://github.com/paritytech/polkadot-sdk?branch=release-polkadot-v1.12.0)",
- "sp-std 14.0.0 (git+https://github.com/paritytech/polkadot-sdk?branch=release-polkadot-v1.12.0)",
-]
-
-[[package]]
-name = "ep-eth"
-version = "0.2.0"
-source = "git+https://github.com/agryaznov/ethink?rev=3bf6afc#3bf6afcc31a290a43cea026109082f026099dc7d"
-dependencies = [
- "ep-mapping 0.2.0 (git+https://github.com/agryaznov/ethink?rev=3bf6afc)",
+ "ep-mapping",
  "ethereum",
  "ethereum-types",
  "hex",
@@ -2069,16 +2046,6 @@ dependencies = [
 [[package]]
 name = "ep-mapping"
 version = "0.2.0"
-source = "git+https://github.com/agryaznov/ethink?rev=193f8b4#193f8b4bd684f9ef4253dfdff259a2f622172e78"
-dependencies = [
- "sp-core",
- "sp-weights 27.0.0",
-]
-
-[[package]]
-name = "ep-mapping"
-version = "0.2.0"
-source = "git+https://github.com/agryaznov/ethink?rev=3bf6afc#3bf6afcc31a290a43cea026109082f026099dc7d"
 dependencies = [
  "sp-core",
  "sp-weights 27.0.0",
@@ -6338,7 +6305,7 @@ dependencies = [
  "bip39",
  "cfg-if",
  "derive_more",
- "ep-eth 0.2.0 (git+https://github.com/agryaznov/ethink?rev=193f8b4)",
+ "ep-eth",
  "hex",
  "hmac 0.12.1",
  "libsecp256k1",

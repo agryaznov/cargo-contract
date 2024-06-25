@@ -68,7 +68,7 @@ impl Config for Ecdsachain {
     type Hash = <SubstrateConfig as Config>::Hash;
     type AccountId = <SubstrateConfig as Config>::AccountId;
     type Address = <SubstrateConfig as Config>::Address;
-    type Signature = <SubstrateConfig as Config>::Signature;
+    type Signature = EthereumSignature;
     type Hasher = <SubstrateConfig as Config>::Hasher;
     type Header = <SubstrateConfig as Config>::Header;
     type ExtrinsicParams = SubstrateExtrinsicParams<Self>;

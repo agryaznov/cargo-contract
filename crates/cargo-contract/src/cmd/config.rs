@@ -17,7 +17,6 @@
 use ink_env::{
     DefaultEnvironment,
     Environment,
-    NoChainExtension,
 };
 use std::{
     fmt::Debug,
@@ -25,12 +24,7 @@ use std::{
 };
 use subxt::{
     config::{
-        substrate::{
-            BlakeTwo256,
-            MultiAddress,
-            SubstrateHeader,
-            H256,
-        },
+        substrate::MultiAddress,
         PolkadotExtrinsicParams,
         SubstrateExtrinsicParams,
     },

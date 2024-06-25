@@ -320,7 +320,9 @@ where
     pub async fn instantiate_dry_run(
         &self,
     ) -> Result<ContractInstantiateResult<C::AccountId, E::Balance>> {
+        println!("Entered: instantiate_dry_run ");
         let storage_deposit_limit = self.args.storage_deposit_limit;
+        println!("Point1: instantiate_dry_run ");
         let call_request = InstantiateRequest::<C, E> {
             origin: self.opts.signer().account_id(),
             value: self.args.value,
@@ -330,6 +332,10 @@ where
             data: self.args.data.clone(),
             salt: self.args.salt.clone(),
         };
+//        let dbg = hex::encode(call_request.encode());
+        println!("ContractsApi_instantiate:");
+        println!("origin: {:?}", &call_request.origin);
+        println!("value: {:?}", hex::encode(&call_request.value.encode()));
         state_call(&self.rpc, "ContractsApi_instantiate", &call_request).await
     }
 

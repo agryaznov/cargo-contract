@@ -6250,6 +6250,7 @@ dependencies = [
  "impl-serde",
  "instant",
  "jsonrpsee",
+ "libsecp256k1",
  "parity-scale-codec",
  "primitive-types",
  "scale-bits 0.5.0",

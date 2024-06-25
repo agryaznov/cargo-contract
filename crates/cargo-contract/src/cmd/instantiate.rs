@@ -143,6 +143,7 @@ impl InstantiateCommand {
             .map_err(|_| anyhow::anyhow!("Failed to parse suri option"))?;
         let chain = self.extrinsic_cli_opts.chain_cli_opts.chain();
         let token_metadata = TokenMetadata::query::<C>(&chain.url()).await?;
+        tracing::debug!("HAVE READ METADATA");
 
         let storage_deposit_limit = self
             .extrinsic_cli_opts
@@ -153,14 +154,17 @@ impl InstantiateCommand {
             .map_err(|e| {
                 anyhow::anyhow!("Failed to parse storage_deposit_limit option: {}", e)
             })?;
+        tracing::debug!("HAVE READ STORAGE DEPOSIT LIMIT");
         let value = parse_balance(&self.value, &token_metadata)
             .map_err(|e| anyhow::anyhow!("Failed to parse value option: {}", e))?;
+        tracing::debug!("HAVE READ VALUE");
         let extrinsic_opts = ExtrinsicOptsBuilder::new(signer)
             .file(self.extrinsic_cli_opts.file.clone())
             .manifest_path(self.extrinsic_cli_opts.manifest_path.clone())
             .url(chain.url())
             .storage_deposit_limit(storage_deposit_limit)
             .done();
+        tracing::debug!("HAVE READ XTS OPTS");
 
         let instantiate_exec: InstantiateExec<C, C, _> =
             InstantiateCommandBuilder::new(extrinsic_opts)
@@ -172,9 +176,12 @@ impl InstantiateCommand {
                 .salt(self.salt.clone())
                 .done()
                 .await?;
+        tracing::debug!("HAVE BUILT COMMAND");
 
         if !self.extrinsic_cli_opts.execute {
+            tracing::debug!("BEFORE DRY RUN");
             let result = instantiate_exec.instantiate_dry_run().await?;
+            tracing::debug!("HAVE DRY RUNNED");
             match instantiate_exec.decode_instantiate_dry_run(&result).await {
                 Ok(dry_run_result) => {
                     if self.output_json() {

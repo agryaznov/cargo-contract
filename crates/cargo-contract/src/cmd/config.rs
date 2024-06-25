@@ -195,7 +195,6 @@ impl FromStr for SignerEcdsa {
     fn from_str(input: &str) -> Result<SignerEcdsa, Self::Err> {
         let suri = SecretUri::from_str(input)?;
         let signer = ecdsa::Keypair::from_uri(&suri)?;
-        println!("READING SIGNER FROM SURI");
         Ok(Self(signer))
     }
 }
@@ -207,7 +206,6 @@ where
     <C as Config>::Signature: From<ecdsa::Signature>,
 {
     fn account_id(&self) -> <C as Config>::AccountId {
-        println!("Getting AccountId from signer");
         <ecdsa::Keypair as SignerT<C>>::account_id(&self.0).clone()
     }
 

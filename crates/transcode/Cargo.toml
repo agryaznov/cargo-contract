@@ -24,8 +24,8 @@ contract-metadata = { version = "4.1.1-ethink", path = "../metadata" }
 escape8259 = "0.5.2"
 hex = "0.4.3"
 indexmap = "2.2.6"
-ink_env = { path  = "../../../ink/crates/env" }
-ink_metadata = { path  = "../../../ink/crates/metadata" }
+ink_env = {git = "https://github.com/use-ink/ink", rev = "0cd2b89"}
+ink_metadata = {git = "https://github.com/use-ink/ink", rev = "0cd2b89"}
 itertools = "0.12.1"
 tracing = "0.1.40"
 nom = "7.1.3"

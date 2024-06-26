@@ -1,6 +1,6 @@
 [package]
 name = "cargo-contract"
-version = "4.1.1-ethink"
+version = "4.1.1+ethink"
 authors = ["Use Ink <ink@r0gue.io>"]
 build = "build.rs"
 edition = "2021"
@@ -18,11 +18,11 @@ include = [
 ]
 
 [dependencies]
-contract-build = { version = "4.1.1-ethink", path = "../build" }
-contract-extrinsics = { version = "4.1.1-ethink", path = "../extrinsics" }
-contract-transcode = { version = "4.1.1-ethink", path = "../transcode" }
-contract-metadata = { version = "4.1.1-ethink", path = "../metadata" }
-contract-analyze = { version = "4.1.1-ethink", path = "../analyze" }
+contract-build = { version = "4.1.1+ethink", path = "../build" }
+contract-extrinsics = { version = "4.1.1+ethink", path = "../extrinsics" }
+contract-transcode = { version = "4.1.1+ethink", path = "../transcode" }
+contract-metadata = { version = "4.1.1+ethink", path = "../metadata" }
+contract-analyze = { version = "4.1.1+ethink", path = "../analyze" }
 
 anyhow = "1.0.83"
 clap = { version = "4.5.4", features = ["derive", "env"] }

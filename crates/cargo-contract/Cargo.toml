@@ -43,8 +43,8 @@ comfy-table = "7.1.1"
 
 # dependencies for extrinsics (deploying and calling a contract)
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
-subxt = { git = "https://github.com/agryaznov/subxt.git", branch = "0.35.3-ethink-dev", features = ["substrate-compat"] }
-subxt-signer = { git = "https://github.com/agryaznov/subxt.git", branch = "0.35.3-ethink-dev", features = ["ecdsa"] }
+subxt = { git = "https://github.com/agryaznov/subxt.git", tag = "v0.35.3+ethink", features = ["substrate-compat"] }
+subxt-signer = { git = "https://github.com/agryaznov/subxt.git", tag = "v0.35.3+ethink", features = ["ecdsa"] }
 sp-core = { git = "https://github.com/paritytech/polkadot-sdk", branch = "release-polkadot-v1.12.0" }
 sp-weights = { git = "https://github.com/paritytech/polkadot-sdk", branch = "release-polkadot-v1.12.0" }
 hex = "0.4.3"

@@ -172,6 +172,7 @@ impl InstantiateCommand {
                 .salt(self.salt.clone())
                 .done()
                 .await?;
+        tracing::debug!("HAVE BUILT COMMAND");
 
         if !self.extrinsic_cli_opts.execute {
             let result = instantiate_exec.instantiate_dry_run().await?;

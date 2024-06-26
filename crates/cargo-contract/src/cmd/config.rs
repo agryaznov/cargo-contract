@@ -24,6 +24,7 @@ use std::{
 };
 use subxt::{
     config::{
+        substrate::MultiAddress,
         PolkadotExtrinsicParams,
         SubstrateExtrinsicParams,
     },
@@ -35,26 +36,33 @@ use subxt::{
         PairSigner,
         Signer as SignerT,
     },
+    utils::AccountId20,
     Config,
     PolkadotConfig,
     SubstrateConfig,
 };
+
+use subxt_signer::{
+    ecdsa,
+    SecretUri,
+};
+
+use ep_eth::EthereumSignature;
 
 /// Configuration for signer
 pub trait SignerConfig<C: Config + Environment> {
     type Signer: SignerT<C> + FromStr + Clone;
 }
 
-/// A runtime configuration for the ecdsa test chain.
-/// This thing is not meant to be instantiated; it is just a collection of types.
+/// A runtime configuration for a Ethink chain.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Ecdsachain {}
 
 impl Config for Ecdsachain {
     type Hash = <SubstrateConfig as Config>::Hash;
-    type AccountId = <SubstrateConfig as Config>::AccountId;
-    type Address = <SubstrateConfig as Config>::Address;
-    type Signature = <SubstrateConfig as Config>::Signature;
+    type AccountId = AccountId20;
+    type Address = MultiAddress<Self::AccountId, u32>;
+    type Signature = EthereumSignature;
     type Hasher = <SubstrateConfig as Config>::Hasher;
     type Header = <SubstrateConfig as Config>::Header;
     type ExtrinsicParams = SubstrateExtrinsicParams<Self>;
@@ -71,11 +79,8 @@ impl Environment for Ecdsachain {
     type ChainExtension = <DefaultEnvironment as Environment>::ChainExtension;
 }
 
-impl SignerConfig<Self> for Ecdsachain
-where
-    <Self as Config>::Signature: From<sp_core::ecdsa::Signature>,
-{
-    type Signer = SignerEcdsa<Self>;
+impl SignerConfig<Self> for Ecdsachain {
+    type Signer = SignerEcdsa;
 }
 
 /// A runtime configuration for the Substrate based chain.
@@ -175,38 +180,35 @@ where
 
 /// Struct representing the implementation of the ecdsa signer
 #[derive(Clone)]
-pub struct SignerEcdsa<C: Config>(pub PairSigner<C, sp_core::ecdsa::Pair>);
+pub struct SignerEcdsa(pub ecdsa::Keypair);
 
-impl<C: Config> FromStr for SignerEcdsa<C>
-where
-    // Requirements of the `PairSigner where:
-    // T::AccountId: From<SpAccountId32>`
-    <C as Config>::AccountId: From<sp_core::crypto::AccountId32>,
-{
+impl FromStr for SignerEcdsa {
     type Err = anyhow::Error;
 
     /// Attempts to parse the Signer suri string
-    fn from_str(input: &str) -> Result<SignerEcdsa<C>, Self::Err> {
-        let keypair = sp_core::ecdsa::Pair::from_string(input, None)?;
-        let signer = PairSigner::<C, _>::new(keypair);
+    fn from_str(input: &str) -> Result<SignerEcdsa, Self::Err> {
+        let suri = SecretUri::from_str(input)?;
+        let signer = ecdsa::Keypair::from_uri(&suri)?;
         Ok(Self(signer))
     }
 }
 
-impl<C: Config> SignerT<C> for SignerEcdsa<C>
+impl<C: Config> SignerT<C> for SignerEcdsa
 where
-    <C as Config>::Signature: From<sp_core::ecdsa::Signature>,
+    <C as Config>::AccountId: From<ecdsa::PublicKey>,
+    <C as Config>::Address: From<ecdsa::PublicKey>,
+    <C as Config>::Signature: From<ecdsa::Signature>,
 {
     fn account_id(&self) -> <C as Config>::AccountId {
-        self.0.account_id().clone()
+        <ecdsa::Keypair as SignerT<C>>::account_id(&self.0).clone()
     }
 
     fn address(&self) -> C::Address {
-        self.0.address()
+        <ecdsa::Keypair as SignerT<C>>::address(&self.0)
     }
 
     fn sign(&self, signer_payload: &[u8]) -> C::Signature {
-        self.0.sign(signer_payload)
+        <ecdsa::Keypair as SignerT<C>>::sign(&self.0, signer_payload)
     }
 }
 

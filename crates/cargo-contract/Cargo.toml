@@ -50,7 +50,7 @@ sp-weights = { git = "https://github.com/paritytech/polkadot-sdk", branch = "rel
 hex = "0.4.3"
 
 # ethink
-ep-eth = { git = "https://github.com/agryaznov/ethink.git", branch = "develop" }
+ep-eth = { git = "https://github.com/agryaznov/ethink.git", tag = "v0.3.0" }
 
 [build-dependencies]
 anyhow = "1.0.83"

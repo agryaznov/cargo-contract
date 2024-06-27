@@ -190,7 +190,7 @@ impl CustomTypeEncoder for AccountId {
 impl CustomTypeDecoder for AccountId {
     fn decode_value(&self, input: &mut &[u8]) -> Result<Value> {
         let account_id = AccountId20::decode(input)?;
-        Ok(Value::Literal(account_id.to_ss58check()))
+        Ok(Value::Literal(account_id.to_string()))
     }
 }
 

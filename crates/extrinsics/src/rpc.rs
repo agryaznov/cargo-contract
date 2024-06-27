@@ -47,7 +47,7 @@ impl RawParams {
     pub fn new(params: &[String]) -> Result<Self> {
         let mut str_parser = from_str_custom();
         str_parser = str_parser.add_custom_parser(custom_hex_parse);
-        str_parser = str_parser.add_custom_parser(custom_ss58_parse);
+        str_parser = str_parser.add_custom_parser(custom_eth_account_parse);
 
         let value_params = params
             .iter()
@@ -152,8 +152,8 @@ fn custom_hex_parse(s: &mut &str) -> Option<Result<Value<()>, ParseError>> {
     Some(Ok(Value::string(hex.to_string())))
 }
 
-/// Parse ss58 address to string
-fn custom_ss58_parse(s: &mut &str) -> Option<Result<Value<()>, ParseError>> {
+/// Parse address to string
+fn custom_eth_account_parse(s: &mut &str) -> Option<Result<Value<()>, ParseError>> {
     let end_idx = s
         .find(|c: char| !c.is_ascii_alphanumeric())
         .unwrap_or(s.len());

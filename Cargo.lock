@@ -1035,7 +1035,7 @@ dependencies = [
 
 [[package]]
 name = "cargo-contract"
-version = "4.1.1+ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -1317,7 +1317,7 @@ checksum = "cd7e35aee659887cbfb97aaf227ac12cad1a9d7c71e55ff3376839ed4e282d08"
 
 [[package]]
 name = "contract-analyze"
-version = "4.1.1+ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "contract-metadata",
@@ -1327,7 +1327,7 @@ dependencies = [
 
 [[package]]
 name = "contract-build"
-version = "4.1.1+ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "blake2",
@@ -1368,7 +1368,7 @@ dependencies = [
 
 [[package]]
 name = "contract-extrinsics"
-version = "4.1.1+ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -1406,7 +1406,7 @@ dependencies = [
 
 [[package]]
 name = "contract-metadata"
-version = "4.1.1+ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "impl-serde",
@@ -1419,7 +1419,7 @@ dependencies = [
 
 [[package]]
 name = "contract-transcode"
-version = "4.1.1+ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "assert_matches",
@@ -2026,6 +2026,7 @@ checksum = "e48c92028aaa870e83d51c64e5d4e0b6981b360c522198c23959f219a4e1b15b"
 [[package]]
 name = "ep-eth"
 version = "0.3.0"
+source = "git+https://github.com/agryaznov/ethink.git?branch=master#6e17bced3d7c0a596d6e61b7951d5f792132c87f"
 dependencies = [
  "ep-mapping",
  "ethereum",
@@ -2049,6 +2050,7 @@ dependencies = [
 [[package]]
 name = "ep-mapping"
 version = "0.3.0"
+source = "git+https://github.com/agryaznov/ethink.git?branch=master#6e17bced3d7c0a596d6e61b7951d5f792132c87f"
 dependencies = [
  "sp-core",
  "sp-weights 27.0.0",
@@ -5401,7 +5403,7 @@ dependencies = [
 [[package]]
 name = "sp-crypto-ec-utils"
 version = "0.10.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#d604e84ee71d685ac3b143b19976d0093b95a1e2"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "ark-bls12-377",
  "ark-bls12-377-ext",
@@ -5455,7 +5457,7 @@ dependencies = [
 [[package]]
 name = "sp-debug-derive"
 version = "14.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#d604e84ee71d685ac3b143b19976d0093b95a1e2"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -5475,7 +5477,7 @@ dependencies = [
 [[package]]
 name = "sp-externalities"
 version = "0.25.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#d604e84ee71d685ac3b143b19976d0093b95a1e2"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "environmental",
  "parity-scale-codec",
@@ -5586,7 +5588,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface"
 version = "24.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#d604e84ee71d685ac3b143b19976d0093b95a1e2"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "bytes",
  "impl-trait-for-tuples",
@@ -5618,7 +5620,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface-proc-macro"
 version = "17.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#d604e84ee71d685ac3b143b19976d0093b95a1e2"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "Inflector",
  "expander",
@@ -5662,7 +5664,7 @@ source = "git+https://github.com/paritytech/polkadot-sdk?branch=release-polkadot
 [[package]]
 name = "sp-std"
 version = "14.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#d604e84ee71d685ac3b143b19976d0093b95a1e2"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 
 [[package]]
 name = "sp-storage"
@@ -5679,7 +5681,7 @@ dependencies = [
 [[package]]
 name = "sp-storage"
 version = "19.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#d604e84ee71d685ac3b143b19976d0093b95a1e2"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "impl-serde",
  "parity-scale-codec",
@@ -5702,7 +5704,7 @@ dependencies = [
 [[package]]
 name = "sp-tracing"
 version = "16.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#d604e84ee71d685ac3b143b19976d0093b95a1e2"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "parity-scale-codec",
  "tracing",
@@ -5746,7 +5748,7 @@ dependencies = [
 [[package]]
 name = "sp-wasm-interface"
 version = "20.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#d604e84ee71d685ac3b143b19976d0093b95a1e2"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "impl-trait-for-tuples",
  "log",
@@ -5917,7 +5919,8 @@ checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
 
 [[package]]
 name = "subxt"
-version = "0.35.3+ethink"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "async-trait",
  "base58",
@@ -5955,7 +5958,8 @@ dependencies = [
 
 [[package]]
 name = "subxt-codegen"
-version = "0.35.3+ethink"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "frame-metadata 16.0.0",
  "heck 0.4.1",
@@ -5974,7 +5978,8 @@ dependencies = [
 
 [[package]]
 name = "subxt-lightclient"
-version = "0.35.3+ethink"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "futures",
  "futures-util",
@@ -5989,7 +5994,8 @@ dependencies = [
 
 [[package]]
 name = "subxt-macro"
-version = "0.35.3+ethink"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "darling 0.20.9",
  "parity-scale-codec",
@@ -6002,7 +6008,8 @@ dependencies = [
 
 [[package]]
 name = "subxt-metadata"
-version = "0.35.3+ethink"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "derive_more",
  "frame-metadata 16.0.0",
@@ -6014,7 +6021,8 @@ dependencies = [
 
 [[package]]
 name = "subxt-signer"
-version = "0.35.3+ethink"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "bip39",
  "cfg-if",

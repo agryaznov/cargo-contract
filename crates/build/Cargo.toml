@@ -1,7 +1,7 @@
 [package]
 name = "contract-build"
-version = "4.1.1+ethink"
-authors = ["Use Ink <ink@r0gue.io>"]
+version = "4.1.1-ethink.1"
+authors = ["Use Ink <ink@r0gue.io>", "Alexander Gryaznov <hi@agryaznov.com>"]
 edition = "2021"
 
 license = "Apache-2.0"
@@ -45,7 +45,7 @@ tokio-stream = "0.1"
 bollard = "0.16"
 crossterm = "0.27.0"
 
-contract-metadata = { version = "4.1.1+ethink", path = "../metadata" }
+contract-metadata = { version = "4.1.1-ethink.1", path = "../metadata" }
 
 [target.'cfg(unix)'.dependencies]
 uzers = "0.12"

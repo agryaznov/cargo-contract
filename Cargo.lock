@@ -1035,7 +1035,7 @@ dependencies = [
 
 [[package]]
 name = "cargo-contract"
-version = "4.1.1-ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -1063,8 +1063,8 @@ dependencies = [
  "sp-core",
  "sp-weights 27.0.0",
  "substrate-build-script-utils",
- "subxt 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink)",
- "subxt-signer 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink)",
+ "subxt",
+ "subxt-signer",
  "tempfile",
  "tokio",
  "tracing",
@@ -1317,7 +1317,7 @@ checksum = "cd7e35aee659887cbfb97aaf227ac12cad1a9d7c71e55ff3376839ed4e282d08"
 
 [[package]]
 name = "contract-analyze"
-version = "4.1.1-ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "contract-metadata",
@@ -1327,7 +1327,7 @@ dependencies = [
 
 [[package]]
 name = "contract-build"
-version = "4.1.1-ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "blake2",
@@ -1368,7 +1368,7 @@ dependencies = [
 
 [[package]]
 name = "contract-extrinsics"
-version = "4.1.1-ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -1395,8 +1395,8 @@ dependencies = [
  "sp-core",
  "sp-runtime",
  "sp-weights 27.0.0",
- "subxt 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink)",
- "subxt-signer 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev)",
+ "subxt",
+ "subxt-signer",
  "tempfile",
  "tokio",
  "tracing",
@@ -1406,7 +1406,7 @@ dependencies = [
 
 [[package]]
 name = "contract-metadata"
-version = "4.1.1-ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "impl-serde",
@@ -1419,13 +1419,14 @@ dependencies = [
 
 [[package]]
 name = "contract-transcode"
-version = "4.1.1-ethink"
+version = "4.1.1-ethink.1"
 dependencies = [
  "anyhow",
  "assert_matches",
  "base58",
  "blake2",
  "contract-metadata",
+ "ep-eth",
  "escape8259",
  "hex",
  "indexmap 2.2.6",
@@ -2025,7 +2026,7 @@ checksum = "e48c92028aaa870e83d51c64e5d4e0b6981b360c522198c23959f219a4e1b15b"
 [[package]]
 name = "ep-eth"
 version = "0.3.0"
-source = "git+https://github.com/agryaznov/ethink.git?tag=v0.3.0#abf8fd19b0fa1a87ff3435be32acb506984cf2fb"
+source = "git+https://github.com/agryaznov/ethink.git?branch=master#6e17bced3d7c0a596d6e61b7951d5f792132c87f"
 dependencies = [
  "ep-mapping",
  "ethereum",
@@ -2049,7 +2050,7 @@ dependencies = [
 [[package]]
 name = "ep-mapping"
 version = "0.3.0"
-source = "git+https://github.com/agryaznov/ethink.git?tag=v0.3.0#abf8fd19b0fa1a87ff3435be32acb506984cf2fb"
+source = "git+https://github.com/agryaznov/ethink.git?branch=master#6e17bced3d7c0a596d6e61b7951d5f792132c87f"
 dependencies = [
  "sp-core",
  "sp-weights 27.0.0",
@@ -5402,7 +5403,7 @@ dependencies = [
 [[package]]
 name = "sp-crypto-ec-utils"
 version = "0.10.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7a2592e8458f8b3c5d9683eb02380a0f5959b5b3"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "ark-bls12-377",
  "ark-bls12-377-ext",
@@ -5456,7 +5457,7 @@ dependencies = [
 [[package]]
 name = "sp-debug-derive"
 version = "14.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7a2592e8458f8b3c5d9683eb02380a0f5959b5b3"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -5476,7 +5477,7 @@ dependencies = [
 [[package]]
 name = "sp-externalities"
 version = "0.25.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7a2592e8458f8b3c5d9683eb02380a0f5959b5b3"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "environmental",
  "parity-scale-codec",
@@ -5587,7 +5588,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface"
 version = "24.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7a2592e8458f8b3c5d9683eb02380a0f5959b5b3"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "bytes",
  "impl-trait-for-tuples",
@@ -5619,7 +5620,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface-proc-macro"
 version = "17.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7a2592e8458f8b3c5d9683eb02380a0f5959b5b3"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "Inflector",
  "expander",
@@ -5663,7 +5664,7 @@ source = "git+https://github.com/paritytech/polkadot-sdk?branch=release-polkadot
 [[package]]
 name = "sp-std"
 version = "14.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7a2592e8458f8b3c5d9683eb02380a0f5959b5b3"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 
 [[package]]
 name = "sp-storage"
@@ -5680,7 +5681,7 @@ dependencies = [
 [[package]]
 name = "sp-storage"
 version = "19.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7a2592e8458f8b3c5d9683eb02380a0f5959b5b3"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "impl-serde",
  "parity-scale-codec",
@@ -5703,7 +5704,7 @@ dependencies = [
 [[package]]
 name = "sp-tracing"
 version = "16.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7a2592e8458f8b3c5d9683eb02380a0f5959b5b3"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "parity-scale-codec",
  "tracing",
@@ -5747,7 +5748,7 @@ dependencies = [
 [[package]]
 name = "sp-wasm-interface"
 version = "20.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7a2592e8458f8b3c5d9683eb02380a0f5959b5b3"
+source = "git+https://github.com/paritytech/polkadot-sdk#569f994b71fd09b865c961bf5183f0627f244e55"
 dependencies = [
  "impl-trait-for-tuples",
  "log",
@@ -5918,8 +5919,8 @@ checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
 
 [[package]]
 name = "subxt"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink#9b3b8fb8232a85bf5f30112ead66ede03f27104b"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "async-trait",
  "base58",
@@ -5946,46 +5947,9 @@ dependencies = [
  "sp-core",
  "sp-crypto-hashing",
  "sp-runtime",
- "subxt-lightclient 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink)",
- "subxt-macro 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink)",
- "subxt-metadata 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink)",
- "thiserror",
- "tokio-util",
- "tracing",
- "url",
-]
-
-[[package]]
-name = "subxt"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev#20e1a1232cbc58ba46077d4e535c421b4ae6200f"
-dependencies = [
- "async-trait",
- "base58",
- "blake2",
- "derivative",
- "either",
- "ep-eth",
- "frame-metadata 16.0.0",
- "futures",
- "hex",
- "impl-serde",
- "instant",
- "jsonrpsee",
- "libsecp256k1",
- "parity-scale-codec",
- "primitive-types",
- "scale-bits",
- "scale-decode",
- "scale-encode",
- "scale-info",
- "scale-value",
- "serde",
- "serde_json",
- "sp-crypto-hashing",
- "subxt-lightclient 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev)",
- "subxt-macro 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev)",
- "subxt-metadata 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev)",
+ "subxt-lightclient",
+ "subxt-macro",
+ "subxt-metadata",
  "thiserror",
  "tokio-util",
  "tracing",
@@ -5994,8 +5958,8 @@ dependencies = [
 
 [[package]]
 name = "subxt-codegen"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink#9b3b8fb8232a85bf5f30112ead66ede03f27104b"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "frame-metadata 16.0.0",
  "heck 0.4.1",
@@ -6006,27 +5970,7 @@ dependencies = [
  "quote",
  "scale-info",
  "scale-typegen",
- "subxt-metadata 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink)",
- "syn 2.0.68",
- "thiserror",
- "tokio",
-]
-
-[[package]]
-name = "subxt-codegen"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev#20e1a1232cbc58ba46077d4e535c421b4ae6200f"
-dependencies = [
- "frame-metadata 16.0.0",
- "heck 0.4.1",
- "hex",
- "jsonrpsee",
- "parity-scale-codec",
- "proc-macro2",
- "quote",
- "scale-info",
- "scale-typegen",
- "subxt-metadata 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev)",
+ "subxt-metadata",
  "syn 2.0.68",
  "thiserror",
  "tokio",
@@ -6034,24 +5978,8 @@ dependencies = [
 
 [[package]]
 name = "subxt-lightclient"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink#9b3b8fb8232a85bf5f30112ead66ede03f27104b"
-dependencies = [
- "futures",
- "futures-util",
- "serde",
- "serde_json",
- "smoldot-light",
- "thiserror",
- "tokio",
- "tokio-stream",
- "tracing",
-]
-
-[[package]]
-name = "subxt-lightclient"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev#20e1a1232cbc58ba46077d4e535c421b4ae6200f"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "futures",
  "futures-util",
@@ -6066,49 +5994,22 @@ dependencies = [
 
 [[package]]
 name = "subxt-macro"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink#9b3b8fb8232a85bf5f30112ead66ede03f27104b"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "darling 0.20.9",
  "parity-scale-codec",
  "proc-macro-error",
  "quote",
  "scale-typegen",
- "subxt-codegen 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink)",
- "syn 2.0.68",
-]
-
-[[package]]
-name = "subxt-macro"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev#20e1a1232cbc58ba46077d4e535c421b4ae6200f"
-dependencies = [
- "darling 0.20.9",
- "parity-scale-codec",
- "proc-macro-error",
- "quote",
- "scale-typegen",
- "subxt-codegen 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev)",
+ "subxt-codegen",
  "syn 2.0.68",
 ]
 
 [[package]]
 name = "subxt-metadata"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink#9b3b8fb8232a85bf5f30112ead66ede03f27104b"
-dependencies = [
- "derive_more",
- "frame-metadata 16.0.0",
- "hashbrown 0.14.5",
- "parity-scale-codec",
- "scale-info",
- "sp-crypto-hashing",
-]
-
-[[package]]
-name = "subxt-metadata"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev#20e1a1232cbc58ba46077d4e535c421b4ae6200f"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "derive_more",
  "frame-metadata 16.0.0",
@@ -6120,8 +6021,8 @@ dependencies = [
 
 [[package]]
 name = "subxt-signer"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink#9b3b8fb8232a85bf5f30112ead66ede03f27104b"
+version = "0.35.3-ethink.1"
+source = "git+https://github.com/agryaznov/subxt.git?branch=v0.35-ethink#6e24fb585a40c7e3f467dcfe6537a89bd0a3554b"
 dependencies = [
  "bip39",
  "cfg-if",
@@ -6138,31 +6039,7 @@ dependencies = [
  "secrecy",
  "sha2 0.10.8",
  "sp-crypto-hashing",
- "subxt 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?tag=v0.35.3+ethink)",
- "zeroize",
-]
-
-[[package]]
-name = "subxt-signer"
-version = "0.35.3+ethink"
-source = "git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev#20e1a1232cbc58ba46077d4e535c421b4ae6200f"
-dependencies = [
- "bip39",
- "cfg-if",
- "derive_more",
- "ep-eth",
- "hex",
- "hmac 0.12.1",
- "libsecp256k1",
- "parity-scale-codec",
- "pbkdf2",
- "regex",
- "schnorrkel",
- "secp256k1",
- "secrecy",
- "sha2 0.10.8",
- "sp-crypto-hashing",
- "subxt 0.35.3+ethink (git+https://github.com/agryaznov/subxt.git?branch=0.35.3-ethink-dev)",
+ "subxt",
  "zeroize",
 ]
 

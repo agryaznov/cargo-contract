@@ -1,7 +1,7 @@
 [package]
 name = "contract-extrinsics"
-version = "4.1.1+ethink"
-authors = ["Use Ink <ink@r0gue.io>"]
+version = "4.1.1-ethink.1"
+authors = ["Use Ink <ink@r0gue.io>", "Alexander Gryaznov <hi@agryaznov.com>"]
 edition = "2021"
 rust-version = "1.70"
 
@@ -15,9 +15,9 @@ keywords = ["wasm", "parity", "webassembly", "blockchain", "edsl"]
 include = ["Cargo.toml", "*.rs", "LICENSE",]
 
 [dependencies]
-contract-build = { version = "4.1.1+ethink", path = "../build" }
-contract-metadata = { version = "4.1.1+ethink", path = "../metadata" }
-contract-transcode = { version = "4.1.1+ethink", path = "../transcode" }
+contract-build = { version = "4.1.1-ethink.1", path = "../build" }
+contract-metadata = { version = "4.1.1-ethink.1", path = "../metadata" }
+contract-transcode = { version = "4.1.1-ethink.1", path = "../transcode" }
 
 anyhow = "1.0.83"
 blake2 = { version = "0.10.6", default-features = false }
@@ -36,8 +36,7 @@ sp-runtime = { git = "https://github.com/paritytech/polkadot-sdk", branch = "rel
 sp-weights = { git = "https://github.com/paritytech/polkadot-sdk", branch = "release-polkadot-v1.12.0" }
 pallet-contracts-uapi = { git = "https://github.com/paritytech/polkadot-sdk", branch = "release-polkadot-v1.12.0", features = ["scale"] }
 scale-info = "2.11.3"
-#subxt = { git = "https://github.com/agryaznov/subxt", branch = "0.35.3-ethink" }
-subxt = { git = "https://github.com/agryaznov/subxt.git", tag = "v0.35.3+ethink" }
+subxt = { git = "https://github.com/agryaznov/subxt.git", branch = "v0.35-ethink" }
 hex = "0.4.3"
 derivative = "2.2.0"
 ink_env = { git = "https://github.com/use-ink/ink", rev = "0cd2b89" }
@@ -50,7 +49,7 @@ regex = "1.10.4"
 predicates = "3.1.0"
 tempfile = "3.10.1"
 tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
-subxt-signer = { git = "https://github.com/agryaznov/subxt.git", branch = "0.35.3-ethink-dev", features = ["subxt", "sr25519"] }
+subxt-signer = { git = "https://github.com/agryaznov/subxt.git", branch = "v0.35-ethink", features = ["subxt", "sr25519"] }
 
 [features]
 integration-tests = []
